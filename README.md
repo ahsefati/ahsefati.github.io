@@ -1,4 +1,4 @@
 - 👋 Hi, I’m Amirhossein Sefati.
-- 👀 I’m interested in Web and React Native applications, IoT and Networking Algorithms
-- 🌱 I’m currently Studying Master of Computer Science at UofC.
+- 👀 I’m interested in Web-app (Front-end/back-end) and React applications.
+- 🌱 I’m currently Studying Master of Computer Science at UofC (half-way!).
 - 📫 Reach me with @ahsefati as username in almost all social apps!
