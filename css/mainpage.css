@@ -3,51 +3,54 @@
   src: url('../fonts/Handlee.ttf');
 }
 
-/* For Mobile phones */
-@media screen and (min-width: 100px) and (max-width: 550px) {
-  .mainTitle{
-    margin-top: 50px; 
-    margin-left: 50px; 
-    font-size: 1000%;
-  }
-  .mainImg{
-    object-fit: scale-down;
-    width: 90%;
-    float: right;
-  }
-  .mainMenu{
-    font-size: 50%;
-  }
 
-  .detailsBtn{
-    font-size: 125%;
-    color: darkorange;
-    margin-left: 10%;
-    font-style: oblique;
-    text-decoration: underline wavy;
-  }
 
-  .mainMenuDiv{
-    margin-left: 2%; 
-    display: inline-block;
-  }
 
-  .mainTextDiv{
-    width: 100%; 
-    margin-top: 10px; 
-    margin-left: 30px;
-    float: left; 
-    font-size: 230%;
-  }
-
-  .mainImgDiv{
-    width: 90%; display: inline-block;
-  }
+/* For Mobiles */
+.mainTitle{
+  margin-top: 50px; 
+  margin-left: 50px; 
+  font-size: 1000%;
 }
+.mainImg{
+  object-fit: scale-down;
+  width: 90%;
+  float: right;
+}
+.mainMenu{
+  font-size: 30%;
+  text-decoration: underline overline;
+}
+
+.detailsBtn{
+  font-size: 125%;
+  color: darkorange;
+  margin-left: 10%;
+  font-style: oblique;
+  text-decoration: underline wavy;
+}
+
+.mainMenuDiv{
+  margin-left: 2%; 
+  display: inline-block;
+}
+
+.mainTextDiv{
+  width: 100%; 
+  margin-top: 10px; 
+  margin-left: 30px;
+  float: left; 
+  font-size: 230%;
+}
+
+.mainImgDiv{
+  width: 90%; display: inline-block;
+}
+
 
 
 /* For Tablets */
-@media screen and (min-width: 550px) and (max-width: 1200px) {
+@media only screen and (min-width: 550px) {
   .mainTitle{
     margin-top: 50px; 
     margin-left: 50px; 
@@ -59,7 +62,8 @@
     float: right;
   }
   .mainMenu{
-    font-size: 30%;
+    font-size: 40%;
+    text-decoration: underline overline;
   }
 
   .detailsBtn{
@@ -71,7 +75,7 @@
   }
 
   .mainMenuDiv{
-    margin-left: 2%; 
+    margin-left: 1%; 
     display: inline-block;
   }
 
@@ -88,10 +92,7 @@
   }
 }
 
-
-
-
-@media screen and (min-width: 1200px){
+@media only screen and (min-width: 1300px){
   .mainTitle{
     margin-top: 50px; 
     margin-left: 50px; 
@@ -103,7 +104,8 @@
     float: right;
   }
   .mainMenu{
-    font-size: 30%;
+    font-size: 33%;
+    text-decoration: underline overline;
   }
 
   .detailsBtn{
@@ -115,7 +117,7 @@
   }
 
   .mainMenuDiv{
-    margin-left: 2%; 
+    margin-left: 13%; 
     display: inline-block;
   }
 
@@ -134,7 +136,7 @@
 
 
 
-@media screen and (min-width: 1560px){
+@media only screen and (min-width: 1650px){
   .mainTitle{
     margin-top: 50px; 
     margin-left: 50px; 
@@ -146,7 +148,7 @@
     float: right;
   }
   .mainMenu{
-    font-size: 30%;
+    font-size: 35%;
   }
 
   .detailsBtn{
@@ -158,7 +160,7 @@
   }
 
   .mainMenuDiv{
-    margin-left: 10%; 
+    margin-left: 35%; 
     display: inline-block;
   }
 
