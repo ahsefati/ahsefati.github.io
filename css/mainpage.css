@@ -28,6 +28,13 @@
   margin-left: 10%;
   font-style: oblique;
   text-decoration: underline wavy;
+  cursor: pointer !important;
+}
+
+.detailsBtn:hover{
+  font-weight: bold;
+  color: darkcyan;
+  transition: 300ms;
 }
 
 .mainMenuDiv{

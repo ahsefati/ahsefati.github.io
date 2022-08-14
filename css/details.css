@@ -1,0 +1,170 @@
+@font-face {
+  font-family: 'handlee';
+  src: url('../fonts/Handlee.ttf');
+}
+
+
+/* For ALL */
+.nextandprevBtn{
+  cursor: pointer !important;
+  background-color: inherit;
+  border: 0px;
+  font-size: 120%;
+  font-family: 'Handlee';
+}
+.nextandprevBtn:hover{
+  color: blue !important;
+  transition: 300ms;
+}
+
+
+
+/* For Mobiles */
+
+
+
+
+/* For Tablets */
+@media only screen and (min-width: 200px) {
+  .mainTitle{
+    margin-top: 40px;
+    text-align: center; 
+    align-content: center;
+  }
+  
+  .mainmenu{
+    margin-left: 3%;
+    font-size: 150%;
+    text-decoration: underline overline;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .mainmenu:hover{
+    color: blue;
+    transition: 300ms;
+  }
+
+  .mainImg{
+    min-width: 250px;
+    width: 50%;
+    max-width: 450px;
+  }
+
+  .mainTextDiv{
+    width: 50%; 
+    margin-top: 10px; 
+    margin-left: 30px;
+    float: left; 
+    font-size: 230%;
+  }
+
+  .mainImgDiv{
+    width: 100%;
+  }
+
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 300%;
+  }
+}
+
+@media only screen and (min-width: 1000px){
+  .mainTitle{
+    margin-top: 40px;
+    text-align: center; 
+    align-content: center;
+  }
+  
+  .mainmenu{
+    margin-left: 3%;
+    font-size: 150%;
+    text-decoration: underline overline;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .mainmenu:hover{
+    color: blue;
+    transition: 300ms;
+  }
+
+  .mainImg{
+    min-width: 300px;
+    width: 17%;
+  }
+
+  .mainTextDiv{
+    width: 50%; 
+    margin-top: 10px; 
+    margin-left: 30px;
+    float: left; 
+    font-size: 230%;
+  }
+
+  .mainImgDiv{
+    width: 100%;
+  }
+
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 300%;
+  }
+}
+
+
+
+@media only screen and (min-width: 1500px){
+  .mainTitle{
+    margin-top: 40px;
+    text-align: center; 
+    align-content: center;
+  }
+  
+  .mainmenu{
+    margin-left: 3%;
+    font-size: 150%;
+    text-decoration: underline overline;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .mainmenu:hover{
+    color: blue;
+    transition: 300ms;
+  }
+
+  .mainImg{
+    width: 15%;
+  }
+
+  .mainTextDiv{
+    width: 50%; 
+    margin-top: 10px; 
+    margin-left: 30px;
+    float: left; 
+    font-size: 230%;
+  }
+
+  .mainImgDiv{
+    width: 100%;
+  }
+
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 300%;
+  }
+
+}
