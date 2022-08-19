@@ -39,7 +39,6 @@
   text-align: center;
   width: 90%;
   height: 100%;
-  
   float: left;
 }
 
@@ -59,8 +58,15 @@
 
 .three-carts{
   width: 100%;
-  height: 70%;
-  border: 1px solid red;
+  height: 80%;
+}
+.cart{
+  width: 31.3%;
+  height: 100%;
+  border: 2px solid black;
+  float: left;
+  margin-right: 1.1%;
+  text-align: center;
 }
 /* For Mobiles */
 
