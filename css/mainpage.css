@@ -14,26 +14,15 @@
 }
 .mainImg{
   object-fit: scale-down;
-  width: 90%;
+  width: 80%;
   float: right;
   cursor: pointer;
-}
-
-.mainImgHover{
-  object-fit: scale-down;
-  width: 90%;
-  float: right;
-  cursor: pointer;
-  display: none;
+  position: inherit;
+  z-index: -1 !important;
 }
 
 .mainImg:hover{
-  display: none;
-  transition: 300ms;
-}
-
-.mainImgHover:hover{
-  display: inline;
+  transform: rotate(270deg);
   transition: 300ms;
 }
 
@@ -171,8 +160,11 @@
   }
   .mainImg{
     object-fit: scale-down;
-    width: 90%;
+    margin-top: 12%;
+    width: 65%;
     float: right;
+    position: inherit;
+    z-index: -1 !important;
   }
   .mainMenu{
     font-size: 35%;
