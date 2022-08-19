@@ -16,7 +16,27 @@
   object-fit: scale-down;
   width: 90%;
   float: right;
+  cursor: pointer;
 }
+
+.mainImgHover{
+  object-fit: scale-down;
+  width: 90%;
+  float: right;
+  cursor: pointer;
+  display: none;
+}
+
+.mainImg:hover{
+  display: none;
+  transition: 300ms;
+}
+
+.mainImgHover:hover{
+  display: inline;
+  transition: 300ms;
+}
+
 .mainMenu{
   font-size: 30%;
   text-decoration: underline overline;
