@@ -74,7 +74,7 @@
   .mainImg{
     min-width: 250px;
     width: 50%;
-    max-width: 300px;
+    max-width: 260px;
     z-index: -1 !important;
   }
 
@@ -101,9 +101,9 @@
 
   .detailsDiv{
     margin: auto;
-    margin-top:2%;
+    margin-top:8%;
     width: 70%;
-    height: 85%;
+    height: 80%;
     border: 2px solid blue;
     border-radius: 25px;
   }
@@ -248,7 +248,7 @@
     margin: auto;
     margin-top:2%;
     width: 70%;
-    height: 60%;
+    height: 65%;
     border: 2px solid blue;
     border-radius: 25px;
   }
