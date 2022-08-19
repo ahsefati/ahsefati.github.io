@@ -17,13 +17,11 @@
   width: 80%;
   float: right;
   cursor: pointer;
-  position: inherit;
-  z-index: -1 !important;
 }
 
 .mainImg:hover{
   transform: rotate(270deg);
-  transition: 300ms;
+  transition: 200ms;
 }
 
 .mainMenu{
@@ -160,8 +158,8 @@
   }
   .mainImg{
     object-fit: scale-down;
-    margin-top: 12%;
-    width: 65%;
+    margin-top: 2%;
+    width: 80%;
     float: right;
     position: inherit;
     z-index: -1 !important;
