@@ -26,13 +26,12 @@
   border-radius: 25px;
 }
 
-.nextandprevDetailsBtn{
-
-  cursor: pointer !important;
-  background-color: inherit;
-  border: 1px;
-  font-size: 120%;
-  font-family: 'Handlee';
+.nextandprevDetailsbtn{
+  text-align: center;
+  width: 20px;
+  height: 100%;
+  border: 5px solid red;
+  display: inline-flex;
 }
 
 
