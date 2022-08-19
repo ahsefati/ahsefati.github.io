@@ -17,6 +17,23 @@
   transition: 300ms;
 }
 
+.detailsDiv{
+  margin: auto;
+  margin-top: 10px;
+  width: 70%;
+  height: 70%;
+  border: 2px solid blue;
+  border-radius: 25px;
+}
+
+.nextandprevDetailsBtn{
+
+  cursor: pointer !important;
+  background-color: inherit;
+  border: 1px;
+  font-size: 120%;
+  font-family: 'Handlee';
+}
 
 
 /* For Mobiles */
