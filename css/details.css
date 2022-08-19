@@ -19,22 +19,49 @@
 
 .detailsDiv{
   margin: auto;
-  margin-top: 10px;
+  margin-top:10px;
   width: 70%;
   height: 70%;
   border: 2px solid blue;
   border-radius: 25px;
 }
 
-.nextandprevDetailsbtn{
+.nextandprevDetailsBtn{
   text-align: center;
-  width: 20px;
+  min-width: 20px;
+  width: 5%;
   height: 100%;
-  border: 5px solid red;
-  display: inline-flex;
+  float: left;
+  font-size: larger;
+}
+
+.mainDetailingSamples{
+  text-align: center;
+  width: 90%;
+  height: 100%;
+  
+  float: left;
+}
+
+.nextandprevBtnForDetails{
+  cursor: pointer !important;
+  background-color: inherit;
+  border: 0px;
+  font-size: 200%;
+  font-family: 'Handlee';
+  margin:auto
+}
+.nextandprevBtnForDetails:hover{
+  color: blue !important;
+  transition: 300ms;
 }
 
 
+.three-carts{
+  width: 100%;
+  height: 70%;
+  border: 1px solid red;
+}
 /* For Mobiles */
 
 
