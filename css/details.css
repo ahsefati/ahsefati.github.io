@@ -166,6 +166,10 @@ body {
     transition: 200ms;
   }
 
+  .titleForEachSample{
+    font-size: 250%;
+    text-decoration: underline;
+  }
   .txtForEachSample{
     text-align: justify; 
     max-width: inherit; 
