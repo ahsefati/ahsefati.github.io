@@ -257,7 +257,7 @@ body {
     overflow-y: auto;
   }
   .titleForEachSample{
-    font-size: 250%;
+    font-size: 180%;
     text-decoration: underline;
   }
 }
