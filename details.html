@@ -2,7 +2,7 @@
   <link rel="stylesheet" href="./css/details.css" type="text/css">
   <link rel="stylesheet" href="./js/details.js">
   <title>--Amir Portfolio--</title>
-  <body style="font-family: 'handlee'; max-width: 1920px; max-height: 100%;">
+  <body id="body" style="font-family: 'handlee'; max-width: 1920px; max-height: 100%;">
     <div class="mainTitle">
       
       <a onclick="window.location.href='index.html'" class="mainMenu" >-Home!-</a>
@@ -16,7 +16,7 @@
       <div class="nextandprevDetailsBtn">
         
       </div>
-      <div class="mainDetailingSamples">
+      <div id="uiux" class="mainDetailingSamples">
         <label style="font-size:300%">--- UX/UI Design ---</label>
         <div class="carts">
           <div class="cart">
@@ -61,6 +61,27 @@
           </div>
         </div>
       </div>
+      <div id="iosandroid" class="mainDetailingSamples" style="display: none;">
+        <label style="font-size:300%">--- iOS/Android ---</label>
+        <div class="carts">
+          <div class="cart">
+            <span class="titleForEachSample">DIMQ Messenger</span>
+            <br>
+            <p class="txtForEachSample">I developed a very simple messaging application deveeloped by React Native technology. It uses DIMQ protocol which I developed before. Full code is available through my github page.</p>
+            <hr class="hrInCarts">
+            <a class="demoLinkLeft" href="./dimqMsg.html">Demo Pictures</a>
+            <a class="demoLinkRight" href="https://github.com/ahsefati/Basic_Messenger">Github</a>
+          </div>
+          <div class="cart">
+            <span class="titleForEachSample">RFID Emulator</span>
+            <br>
+            <p class="txtForEachSample">This was a failed project for Tehran Metro. The goal was to emulate fare cards to use them directly in an application using "write" and "read" functions for RFID and NFC technologies.</p>
+            <hr class="hrInCarts">
+            <a class="demoLinkLeft" href="">Null :)</a>
+            <a class="demoLinkRight" href="">Null :)</a>
+          </div>
+        </div>
+      </div>
       <div class="nextandprevDetailsBtn">
         
       </div>
@@ -79,6 +100,7 @@
   <script>
     var indexPic = 1
     function next(number){
+      // Change the image of menu
       indexPic = indexPic + number
       if (indexPic==9){
         indexPic = 1
@@ -86,8 +108,18 @@
         indexPic = 8
       }
       var newSrc = "./images/menuPic" + indexPic + ".png"
-      console.log(newSrc)
       document.getElementById("menuImg").src = newSrc
+
+
+      // Change the color of background
+      namesOfDivs = ["uiux", "iosandroid"]
+      colorsOfDivs = ["#DBDDF2", "#F2CCCC", "#BBF2CE", "#ECF2AA", "#CED6B0", "#F2F2DB", "#F2DBE9", "#DBF2EF"]
+      for (var i=0; i<namesOfDivs.length; i++){
+        document.getElementById(namesOfDivs[i]).style.display = "none"
+      } 
+      document.getElementById(namesOfDivs[indexPic-1]).style.display = "inline"
+      document.getElementById("body").style.backgroundColor = colorsOfDivs[indexPic-1]
+
     }
   </script>
 </html>
