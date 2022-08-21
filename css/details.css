@@ -7,7 +7,7 @@
 body {
 	background-color: #DBDDF2 ;
 	background-size: 400% 400%;
-  transition: color 300ms ease;
+  transition: background-color 800ms linear;
 }
 
 /* For ALL */
@@ -287,6 +287,7 @@ body {
   .mainImg{
     width: 15%;
     z-index: -1 !important;
+    transition: all 500ms ease-in;
   }
 
   .mainTextDiv{
