@@ -358,6 +358,83 @@
           </div>
         </div>
       </div>
+      <div id="machinelearning" class="mainDetailingSamples" style="display: none;">
+        <label style="font-size:300%">--- Machine Learning ---</label>
+        <div class="carts">
+          <div class="cart">
+            <span class="titleForEachSample">Implementation of Perceptron</span>
+            <br>
+            <p class="txtForEachSample">The perceptron is an algorithm for supervised learning of binary classifiers. In this work, I implemented a perceptron where it detects whether the user has cancer or not. It uses "Cancer Dataset from sklearn". I didn't use any libraries and the perceptron is implemented from scratch.</p>
+            <hr class="hrInCarts">
+            <a class="demoLinkLeft" href="">Download</a>
+            <a class="demoLinkRight" href="">-</a>
+          </div>
+          <div class="cart">
+            <span class="titleForEachSample">Multi-Layer Nueral Network</span>
+            <br>
+            <p class="txtForEachSample">Afetr perceptron, it is clear that we can't estimate all the functions by this (i.e. XOR function can't be estimated by a simple perceptron). So, we need a nueral network with multiple layers which each layer and each node has its own weight. In this work, I implemented a Multi-layer Nueral Network from scratch and without using any python libraries. I tested the model using "California Housing Prices" dataset provided by Kaggle.</p>
+            <hr class="hrInCarts">
+            <a class="demoLinkLeft" href="">Download</a>
+            <a class="demoLinkRight" href="">-</a>
+          </div>
+          <div class="cart">
+            <span class="titleForEachSample">K-means Algorithm</span>
+            <br>
+            <p class="txtForEachSample">In this work, I implemented the K-means algorithm using Python. It is also implemented from scratch without using Python libraries. Then I used it to reduce an image size.</p>
+            <hr class="hrInCarts">
+            <a class="demoLinkLeft" href="">Download</a>
+            <a class="demoLinkRight" href="">-</a>
+          </div>
+          <div class="cart">
+            <span class="titleForEachSample">K-means Algorithm (1)</span>
+            <br>
+            <p class="txtForEachSample">In this work, I implemented the K-means algorithm using Python. It is also implemented from scratch without using Python libraries. Then I used it to reduce an image size.</p>
+            <hr class="hrInCarts">
+            <a class="demoLinkLeft" href="">Download</a>
+            <a class="demoLinkRight" href="">-</a>
+          </div>
+          <div class="cart">
+            <span class="titleForEachSample">K-means Algorithm (2)</span>
+            <br>
+            <p class="txtForEachSample">In this work, I used the previous implemented K-means algorithm for clustering the customers interest on "Re-buy" the products using 30 features.</p>
+            <hr class="hrInCarts">
+            <a class="demoLinkLeft" href="">Download</a>
+            <a class="demoLinkRight" href="">-</a>
+          </div>
+          <div class="cart">
+            <span class="titleForEachSample">RBF Network</span>
+            <br>
+            <p class="txtForEachSample">Radial Basis Functions are very likely to Nueral Networks. The difference is RBF uses gaussian functions as their activator function in the nodes. When we have data generated from an unknown function, it can help us estimate the main function.</p>
+            <hr class="hrInCarts">
+            <a class="demoLinkLeft" href="">Download</a>
+            <a class="demoLinkRight" href="">-</a>
+          </div>
+          <div class="cart">
+            <span class="titleForEachSample">RBF Network</span>
+            <br>
+            <p class="txtForEachSample">Radial Basis Functions are very likely to Nueral Networks. The difference is RBF uses gaussian functions as their activator function in the nodes. When we have data generated from an unknown function, it can help us estimate the main function. It also uses back-propagation to decrease error of estimation. The final model is tested using a simple dataset.</p>
+            <hr class="hrInCarts">
+            <a class="demoLinkLeft" href="">Download</a>
+            <a class="demoLinkRight" href="">-</a>
+          </div>
+          <div class="cart">
+            <span class="titleForEachSample">Hopfield Network</span>
+            <br>
+            <p class="txtForEachSample">An implementation of Hopfield Networks with pure python was the work. I tested the model to detect Farsi characters. Also, it can perfectly store patterns and retrieve if the input is just a part of the pattern even with lots of noise on it. </p>
+            <hr class="hrInCarts">
+            <a class="demoLinkLeft" href="">Download</a>
+            <a class="demoLinkRight" href="">-</a>
+          </div>
+          <div class="cart">
+            <span class="titleForEachSample">LSTM Algorithm</span>
+            <br>
+            <p class="txtForEachSample">Long-Short Term Memory is used when the data is somehow like time-series. When we are analysing a time-series dataset. In this work, the goal was to predict stock prices using LSTM in real-time. It worked but it was not efficient and accurate enough to be implemented in the real-world.</p>
+            <hr class="hrInCarts">
+            <a class="demoLinkLeft" href="">Download</a>
+            <a class="demoLinkRight" href="">-</a>
+          </div>
+        </div>
+      </div>
       <div class="nextandprevDetailsBtn">
         
       </div>
@@ -388,7 +465,7 @@
 
 
       // Change the color of background and make the related div's display inline
-      namesOfDivs = ["uiux", "iosandroid", "frontend", "backend", "databases", "academic"]
+      namesOfDivs = ["uiux", "iosandroid", "frontend", "backend", "databases", "academic", "machinelearning"]
       colorsOfDivs = ["#DBDDF2", "#F2CCCC", "#BBF2CE", "#ECF2AA", "#CED6B0", "#F2F2DB", "#F2DBE9", "#DBF2EF"]
       for (var i=0; i<namesOfDivs.length; i++){
         document.getElementById(namesOfDivs[i]).style.display = "none"
