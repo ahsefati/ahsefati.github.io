@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html id="main">
+<title>بخش کنترل از طریق سایت - تینایو</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- FOR MODAL -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+<!--===============================================================================================-->
+<link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="css/util.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="css/toggle.css">
+<!--===============================================================================================-->
+
+<!-- FOR SUPPORTING -->
+
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="css/util.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+
+
+
+<style>
+    @font-face {
+        font-family: iransans;
+        src: url('fonts/IRANSans.ttf');
+    }
+    
+    html,
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    input {
+        font-family: 'iransans';
+        direction: rtl;
+    }
+    
+    th {
+        text-align: center;
+        font-size: 120%;
+        padding: 1%;
+    }
+</style>
+
+<body class="w3-white" id="afLogin">
+    <div>
+
+        <?php
+
+        $fname=$_POST["firstname"];
+
+        ?>
+
+
+            <!-- Top container -->
+            <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+                <span class="w3-bar-item w3-right w3-hide-small">تــیــنـــــایو | فناوری هوشمند</span>
+                <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey w3-right" onclick="w3_open();"><i class="fa fa-bars"></i>  گزینه ها</button>
+            </div>
+
+            <!-- Sidebar/menu -->
+            <nav class="w3-sidebar w3-collapse w3-light-grey w3-animate-right" style="z-index:3;width:300px;right: 0px;" id="mySidebar"><br>
+
+                <div class="w3-container w3-row">
+                    <div class="w3-col s8 w3-bar" style="text-align: left;">
+                        <span> <strong><?php echo $fname; ?>  </strong> خوش آمدی </span><br>
+
+                        <a class="w3-bar-item w3-button" data-toggle="modal" data-target="#infoModal"><i data-toggle="modal" data-target="#infoModal" class="fa fa-user"></i></a>
+                        <a class="w3-bar-item w3-button" data-toggle="modal" data-target="#settingModal"><i data-toggle="modal" data-target="#settingModal" class="fa fa-cog"></i></a>
+                    </div>
+                    <div class="w3-col s4">
+                        <img src="images/logo3.png" class="w3-margin-right" style="width:80px">
+                    </div>
+                </div>
+
+
+                <hr>
+
+                <div class="w3-bar-block">
+                    <a href="#" id="groupSide" onclick="showDaneshGaha()" class="w3-bar-item w3-button w3-padding" style="text-align: center;font-family: 'iransans';color: white;background-color: blue;"><i class="fa fa-eye fa-fw"></i>  گروه ها</a>
+                    <a id="supportSide" onclick="showSupport()" class="w3-bar-item w3-button w3-padding" style="text-align: center;font-family: 'iransans';"><i class="fa fa-diamond fa-fw"></i>  پشتیبانی</a>
+                    <a href="./index.html" id="exitSide" class="w3-bar-item w3-button w3-padding" style="text-align: center;font-family: 'iransans';"><i class="fa fa-eye fa-fw"></i>  خروج</a>
+                    <!-- <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>  News</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bank fa-fw"></i>  General</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i>  History</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>  Settings</a><br><br> -->
+                </div>
+                <script>
+                    function hideAll() {
+                        // document.getElementById("managing").style.visibility = "hidden"
+                        // document.getElementById("managing").style.display = "none"
+
+                        document.getElementById("supportSide").style.backgroundColor = "inherit"
+                        document.getElementById("supportSide").style.color = "black"
+                        document.getElementById("groupSide").style.backgroundColor = "inherit"
+                        document.getElementById("groupSide").style.color = "black"
+
+                        // document.getElementById("exitSide").style.backgroundColor = "inherit"
+                        // document.getElementById("exitSide").style.color = "black"
+
+                        document.getElementById("grouping").style.visibility = "hidden"
+                        document.getElementById("grouping").style.display = "none"
+                            // document.getElementById("restoring").style.visibility = "hidden"
+                            // document.getElementById("restoring").style.display = "none"
+                            // document.getElementById("consuming").style.visibility = "hidden"
+                            // document.getElementById("consuming").style.display = "none"
+                        document.getElementById("supporting").style.visibility = "hidden"
+                        document.getElementById("supporting").style.display = "none"
+                    }
+
+                    function showUpdate() {
+                        hideAll()
+                        document.getElementById("updating").style.visibility = "visible"
+                        document.getElementById("updating").style.display = "block"
+                        document.getElementById("updateSide").style.backgroundColor = "blue"
+                        document.getElementById("updateSide").style.color = "white"
+                    }
+
+                    function showManage() {
+                        hideAll()
+                        document.getElementById("managing").style.visibility = "visible"
+                        document.getElementById("managing").style.display = "block"
+                        document.getElementById("manageSide").style.backgroundColor = "blue"
+                        document.getElementById("manageSide").style.color = "white"
+                    }
+
+                    function showRestore() {
+                        hideAll()
+                        document.getElementById("restoring").style.visibility = "visible"
+                        document.getElementById("restoring").style.display = "block"
+                        document.getElementById("restoreSide").style.backgroundColor = "blue"
+                        document.getElementById("restoreSide").style.color = "white"
+                    }
+
+                    function showSupport() {
+                        hideAll()
+                        document.getElementById("supporting").style.visibility = "visible"
+                        document.getElementById("supporting").style.display = "block"
+                        document.getElementById("supportSide").style.backgroundColor = "blue"
+                        document.getElementById("supportSide").style.color = "white"
+                    }
+
+                    function showDaneshGaha() {
+                        hideAll()
+                        document.getElementById("groupSide").style.backgroundColor = "blue"
+                        document.getElementById("groupSide").style.color = "white"
+
+                        document.getElementById("grouping").style.visibility = "visible"
+                        document.getElementById("grouping").style.display = "block"
+                        document.getElementById("khabgahHa").style.display = "block"
+                        document.getElementById("khabgahHa").style.visibility = "visible"
+                    }
+
+                    function exit() {
+                        hideAll()
+                        document.getElementById("exitSide").style.backgroundColor = "blue"
+                        document.getElementById("exitSide").style.color = "white"
+
+                    }
+                </script>
+            </nav>
+
+
+            <!-- Overlay effect when opening sidebar on small screens -->
+            <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer;" title="close side menu" id="myOverlay"></div>
+
+            <!-- !PAGE CONTENT! -->
+            <div class="w3-main" style="margin-right:300px;margin-top:43px;">
+
+                <!-- MANAGE PANEL -->
+                <div class="w3-row-padding w3-margin-bottom" id="grouping">
+                    <div id="khabgahHa">
+
+
+                    </div>
+                    <div id="blockHa" style="visibility: hidden;display: none;">
+
+                    </div>
+                    <div id="washingHa" style="visibility: hidden;display: none;">
+
+                    </div>
+                    <div id="lebasShui">
+                        <div class="w3-panel w3-card " style="text-align: center; ">
+
+                            <h3 style="text-align: center;margin-top: 1%;"> شماره ی لباسشویی : </h3>
+                            <br>
+                            <h3 id="lebasShuiId "> 1234567 </h3>
+                            <br>
+
+                            <!-- JADVAL -->
+                            <div id="jadval" style="text-align: center;">
+                                <table width="100%" border="1" bordercolor="#cccccc" cellpadding="5" cellspacing="5">
+                                    <tr>
+                                        <th colspan="13" style="text-align: center;padding: 1%;">برنامه فعلی این لباسشویی</th>
+                                    </tr>
+                                    <tr style="text-align: center;">
+                                        <td></td>
+                                        <th>9 - 9:45</th>
+                                        <th>10 - 10:45</th>
+                                        <th>11 - 11:45</th>
+                                        <th>12 - 12:45</th>
+                                        <th>13 - 13:45</th>
+                                        <th>14 - 14:45</th>
+                                        <th>15 - 15:45</th>
+                                        <th>16 - 16:45</th>
+                                        <th>17 - 17:45</th>
+                                        <th>18 - 18:45</th>
+                                        <th>19 - 19:45</th>
+                                        <th>20 - 20:45</th>
+                                    </tr>
+                                    <tr>
+                                        <th>شنبه</th>
+                                        <td><input id="t1" type="checkbox"></td>
+                                        <td><input id="t2" type="checkbox"></td>
+                                        <td><input id="t3" type="checkbox"></td>
+                                        <td><input id="t4" type="checkbox"></td>
+                                        <td><input id="t5" type="checkbox"></td>
+                                        <td><input id="t6" type="checkbox"></td>
+                                        <td><input id="t7" type="checkbox"></td>
+                                        <td><input id="t8" type="checkbox"></td>
+                                        <td><input id="t9" type="checkbox"></td>
+                                        <td><input id="t10" type="checkbox"></td>
+                                        <td><input id="t11" type="checkbox"></td>
+                                        <td><input id="t12" type="checkbox"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>یک شنبه</th>
+                                        <td><input id="t13" type="checkbox"></td>
+                                        <td><input id="t14" type="checkbox"></td>
+                                        <td><input id="t15" type="checkbox"></td>
+                                        <td><input id="t16" type="checkbox"></td>
+                                        <td><input id="t17" type="checkbox"></td>
+                                        <td><input id="t18" type="checkbox"></td>
+                                        <td><input id="t19" type="checkbox"></td>
+                                        <td><input id="t20" type="checkbox"></td>
+                                        <td><input id="t21" type="checkbox"></td>
+                                        <td><input id="t22" type="checkbox"></td>
+                                        <td><input id="t23" type="checkbox"></td>
+                                        <td><input id="t24" type="checkbox"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>دوشنبه</th>
+                                        <td><input id="t25" type="checkbox"></td>
+                                        <td><input id="t26" type="checkbox"></td>
+                                        <td><input id="t27" type="checkbox"></td>
+                                        <td><input id="t28" type="checkbox"></td>
+                                        <td><input id="t29" type="checkbox"></td>
+                                        <td><input id="t30" type="checkbox"></td>
+                                        <td><input id="t31" type="checkbox"></td>
+                                        <td><input id="t32" type="checkbox"></td>
+                                        <td><input id="t33" type="checkbox"></td>
+                                        <td><input id="t34" type="checkbox"></td>
+                                        <td><input id="t35" type="checkbox"></td>
+                                        <td><input id="t36" type="checkbox"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>سه شنبه</th>
+                                        <td><input id="t37" type="checkbox"></td>
+                                        <td><input id="t38" type="checkbox"></td>
+                                        <td><input id="t39" type="checkbox"></td>
+                                        <td><input id="t40" type="checkbox"></td>
+                                        <td><input id="t41" type="checkbox"></td>
+                                        <td><input id="t42" type="checkbox"></td>
+                                        <td><input id="t43" type="checkbox"></td>
+                                        <td><input id="t44" type="checkbox"></td>
+                                        <td><input id="t45" type="checkbox"></td>
+                                        <td><input id="t46" type="checkbox"></td>
+                                        <td><input id="t47" type="checkbox"></td>
+                                        <td><input id="t48" type="checkbox"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>چهارشنبه</th>
+                                        <td><input id="t49" type="checkbox"></td>
+                                        <td><input id="t50" type="checkbox"></td>
+                                        <td><input id="t51" type="checkbox"></td>
+                                        <td><input id="t52" type="checkbox"></td>
+                                        <td><input id="t53" type="checkbox"></td>
+                                        <td><input id="t54" type="checkbox"></td>
+                                        <td><input id="t55" type="checkbox"></td>
+                                        <td><input id="t56" type="checkbox"></td>
+                                        <td><input id="t57" type="checkbox"></td>
+                                        <td><input id="t58" type="checkbox"></td>
+                                        <td><input id="t59" type="checkbox"></td>
+                                        <td><input id="t60" type="checkbox"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>پنج شنبه</th>
+                                        <td><input id="t61" type="checkbox"></td>
+                                        <td><input id="t62" type="checkbox"></td>
+                                        <td><input id="t63" type="checkbox"></td>
+                                        <td><input id="t64" type="checkbox"></td>
+                                        <td><input id="t65" type="checkbox"></td>
+                                        <td><input id="t66" type="checkbox"></td>
+                                        <td><input id="t67" type="checkbox"></td>
+                                        <td><input id="t68" type="checkbox"></td>
+                                        <td><input id="t69" type="checkbox"></td>
+                                        <td><input id="t70" type="checkbox"></td>
+                                        <td><input id="t71" type="checkbox"></td>
+                                        <td><input id="t72" type="checkbox"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>جمعه</th>
+                                        <td><input id="t73" type="checkbox"></td>
+                                        <td><input id="t74" type="checkbox"></td>
+                                        <td><input id="t75" type="checkbox"></td>
+                                        <td><input id="t76" type="checkbox"></td>
+                                        <td><input id="t77" type="checkbox"></td>
+                                        <td><input id="t78" type="checkbox"></td>
+                                        <td><input id="t79" type="checkbox"></td>
+                                        <td><input id="t80" type="checkbox"></td>
+                                        <td><input id="t81" type="checkbox"></td>
+                                        <td><input id="t82" type="checkbox"></td>
+                                        <td><input id="t83" type="checkbox"></td>
+                                        <td><input id="t84" type="checkbox"></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <a class="w3-bar-item w3-button" style="font-family: 'iransans';background-color: green;color: white;margin-bottom: 2%;margin-top: 2%; border-radius: 20%;" data-toggle="modal" data-target="#reserveModal">رزرو لباسشویی</a>
+                        </div>
+                    </div>
+
+                    <!-- <div class="w3-half " style="cursor:pointer; ">
+                        <div class="w3-panel w3-card " style="text-align: center; ">
+                            <h2 style="font-size: 180%;margin-top: 1%; ">وضعیت اتصال</h2>
+                            <img src="images/checked.png " class="w3-margin-right " style="width:250px ; margin-top: 3%;margin-bottom: 2%; ">
+                        </div>
+                    </div>
+                    <div class="w3-half " style="cursor:pointer; ">
+                        <div class="w3-panel w3-card " style="text-align: center; ">
+                            <h2 style="font-size: 180%;margin-top: 1%; ">مدیریت گروه ها</h2>
+                            <img src="images/group.png " class="w3-margin-right " style="width:250px ; margin-top: 3%;margin-bottom: 2%; ">
+                        </div>
+                    </div>
+                    <div class="w3-half " style="cursor:pointer; ">
+                        <div class="w3-panel w3-card " style="text-align: center; ">
+                            <h2 style="font-size: 180%;margin-top: 1%; ">آمارها و رتبه ها</h2>
+                            <img src="images/rank.png " class="w3-margin-right " style="width:250px ; margin-top: 3%;margin-bottom: 2%; ">
+                        </div>
+                    </div>
+                    <div class="w3-half " style="cursor:pointer; ">
+                        <div class="w3-panel w3-card " style="text-align: center; ">
+                            <h2 style="font-size: 180%;margin-top: 1%; ">تنظیمات</h2>
+                            <img src="images/setting.png " class="w3-margin-right " style="width:250px ; margin-top: 3%;margin-bottom: 2%; ">
+                        </div>
+                    </div> -->
+                </div>
+
+                <!-- UPDATE PANEL -->
+                <div class="w3-row-padding w3-margin-bottom " id="updating " style="visibility: hidden; display: none ">
+                    <div onclick="updateSoftware() " class="w3-half " style="cursor:pointer; ">
+                        <div class="w3-panel w3-card " style="text-align: center; ">
+                            <h2 style="font-size: 180%;margin-top: 1%; ">به روزرسانی نرم افزار</h2>
+                            <img src="images/softwareUpdate.png " class="w3-margin-right " style="width:250px ; margin-top: 3%;margin-bottom: 2%; ">
+                        </div>
+                        <script>
+                            function updateSoftware() {
+                                document.getElementById("updateSoftware").style.visibility = "visible "
+                                document.getElementById("updateSoftware").style.display = "block "
+
+                                document.getElementById("updatePlatform").style.visibility = "hidden "
+                                document.getElementById("updatePlatform").style.display = "none "
+
+                                setTimeout(function() {
+                                    document.getElementById("updateSoftware").style.visibility = "hidden "
+                                    document.getElementById("updateSoftware").style.display = "none "
+                                }, 3000);
+                            }
+                        </script>
+                    </div>
+
+                    <!-- SOFTWARE UPDATE -->
+                    <div id="updateSoftware " style="visibility: hidden;display: none; ">
+                        <div class="w3-panel w3-card " style="text-align: center; ">
+                            <h3>جدیدترین نسخه ی نرم افزار تینایو در محصولات شما در حال اجرا می باشد.</h3>
+                        </div>
+                    </div>
+
+                    <div onclick="updatePlatform()" class="w3-half" style="cursor:pointer; ">
+                        <div class="w3-panel w3-card " style="text-align: center; ">
+                            <h2 style="font-size: 180%;margin-top: 1%; ">به روزرسانی پلتفرم</h2>
+                            <img src="images/platformUpdate.png " class="w3-margin-right " style="width:250px ; margin-top: 3%;margin-bottom: 2%; ">
+                        </div>
+                        <script>
+                            function updatePlatform() {
+                                document.getElementById("updatePlatform").style.visibility = "visible "
+                                document.getElementById("updatePlatform").style.display = "block "
+
+                                document.getElementById("updateSoftware").style.visibility = "hidden "
+                                document.getElementById("updateSoftware").style.display = "none "
+
+                                setTimeout(function() {
+                                    document.getElementById("updatePlatform").style.visibility = "hidden "
+                                    document.getElementById("updatePlatform").style.display = "none "
+                                }, 3000);
+                            }
+                        </script>
+                    </div>
+
+                    <!-- PLATFORM UPDATE -->
+                    <div id="updatePlatform" style="visibility: hidden;display: none; ">
+                        <div class="w3-panel w3-card " style="text-align: center; ">
+                            <h3>جدیدترین نسخه ی پلتفرم تینایو در اختیار شماست.</h3>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- RESTORE PANEL -->
+                <div class="w3-row-padding w3-margin-bottom " id="restoring" style="visibility: hidden;display: none; ">
+                    <div onclick="restoreSoftware() " style="cursor:pointer; ">
+                        <div class="w3-panel w3-card " style="text-align: center; ">
+                            <h2 style="font-size: 180%;margin-top: 1%; ">بازیابی محصولات به نسخه ی قبلی</h2>
+                            <img src="images/restore.png " class="w3-margin-right " style="width:250px ; margin-top: 3%;margin-bottom: 2%; ">
+                        </div>
+                    </div>
+
+                    <script>
+                        function restoreSoftware() {
+                            document.getElementById("restoreSoftware ").style.visibility = "visible "
+                            document.getElementById("restoreSoftware ").style.display = "block "
+
+                            setTimeout(function() {
+                                document.getElementById("restoreSoftware ").style.visibility = "hidden "
+                                document.getElementById("restoreSoftware ").style.display = "none "
+                            }, 3000);
+                        }
+                    </script>
+
+                    <!-- RESTORE MSG -->
+                    <div id="restoreSoftware " style="visibility: hidden;display: none; ">
+                        <div class="w3-panel w3-card " style="text-align: center; ">
+                            <h3>دستور بازیابی برای محصولات شما ارسال شد.</h3>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- SUPPORT PANEL -->
+                <div class="w3-row-padding w3-margin-bottom " id="supporting" style="visibility: hidden;display: none; ">
+                    <div>
+                        <div class="w3-panel w3-card " style="text-align: center; ">
+                            <form action="supportEmail.php " class="contact100-form validate-form " method="post " style="padding-bottom: 2%; ">
+                                <span class="contact100-form-title ">
+                            <h3 style="margin-top: 3%;margin-bottom: 2%;font-family: 'iransans';text-align: center; ">فرم تماس با پشتیبانی فنی تینایو</h3>
+                        </span>
+
+                                <div class="wrap-input100 validate-input " data-validate="لطفا نام کاربری خود را وارد کنید. ">
+                                    <input style="font-family: 'iransans'; " class="input100 " type="text " name="name " placeholder="نام کاربری شما ">
+                                    <span class="focus-input100 "></span>
+                                </div>
+
+                                <div class="wrap-input100 validate-input " data-validate="لطفا یک ایمیل معتبر وارد کنید. ">
+                                    <input style="font-family: 'iransans'; " class="input100 " type="text " name="email " placeholder="ایمیل شما ">
+                                    <span class="focus-input100 "></span>
+                                </div>
+
+                                <div class="wrap-input100 validate-input " style="padding-bottom: 2%; " data-validate="لطفا یک پیام وارد کنید. ">
+                                    <textarea style="font-family: 'iransans';padding-top: 1.5%; height: 140px; " class="input100 " name="message " placeholder="مشکل شما "></textarea>
+                                    <span class="focus-input100 "></span>
+                                </div>
+
+                                <div class="container-contact100-form-btn ">
+                                    <button style="background-color: green;border-radius: 15%; color: white;padding: 1%; ">
+                                ارسال
+                            </button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+
+                <!-- End page content -->
+            </div>
+
+            <!-- MODAL CONTENT -->
+            <!-- Modal FOR USER INFO -->
+            <div class="modal fade " id="infoModal" role="dialog ">
+                <div class="modal-dialog " style="background-color: white;color: black; ">
+                    <!-- Modal content-->
+                    <div class="modal-content " id="modalInfo " style="background-color: inherit;color: inherit; ">
+                        <div class="modal-header ">
+                            <h3 class="modal-title " style="text-align: center;direction: rtl; ">اطلاعات شما</h4>
+                        </div>
+                        <div class="modal-body ">
+                            <h4 style="float: right;margin-left: 2%; "> نام : </h4>
+                            <h4> امیرحسین صفاتی </h4>
+                            <br>
+                            <h4 style="float: right;margin-left: 2%; "> شماره دانشجویی : </h4>
+                            <h4> 9531702 </h4>
+                            <br>
+                            <h4 style="float: right;margin-left: 2%; "> اعتبار : </h4>
+                            <h4> 100000 تومان </h4>
+
+                        </div>
+                        <div class="modal-footer ">
+                            <button type="button " class="btn btn-default " style="text-align: center;direction: rtl;font-size: 120%;background-color: green;color: white; " data-dismiss="modal">باشه!</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Modal FOR USER SETTINGS -->
+            <div class="modal fade " id="settingModal" role="dialog">
+                <div class="modal-dialog " style="background-color: white;color: black; ">
+                    <!-- Modal content-->
+                    <div class="modal-content" id="modalSet" style="background-color: inherit;color: inherit; ">
+                        <div class="modal-header ">
+                            <h3 class="modal-title " style="text-align: center;direction: rtl; ">تنظیمات</h4>
+                        </div>
+                        <div class="modal-body">
+
+                            <label class="switch" style="float: right;margin-left: 2%; ">
+                                <input onchange="changeTheme() " type="checkbox " id="changeThemeCheck ">
+                                <span class="slider round "></span>
+                            </label>
+                            <h4 style="margin-top: 1.5%; ">حالت شب فعال شود</h4>
+                            <br>
+                            <label class="switch " style="float: right;margin-left: 2%; ">
+                                <input onchange="fullScreen() " type="checkbox " id="changeFullCheck ">
+                                <span class="slider round "></span>
+                            </label>
+                            <h4 style="margin-top: 1.5%; ">حالت تمام صفحه فعال شود</h4>
+                        </div>
+                        <div class="modal-footer ">
+                            <button type="button" class="btn btn-default " style="text-align: center;direction: rtl;font-size: 120%;background-color: green;color: white; " data-dismiss="modal">باشه!</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- Modal FOR Reserve LebasShui -->
+
+            <div class="modal fade " id="reserveModal" role="dialog">
+                <div class="modal-dialog " style="background-color: white;color: black; ">
+                    <!-- Modal content-->
+                    <div class="modal-content " id="modalSet " style="background-color: inherit;color: inherit; ">
+
+                        <div class="modal-header ">
+                            <h2 class="modal-title " style="text-align: center;direction: rtl; ">رزرو لباسشویی</h4>
+                        </div>
+                        <div class="modal-body" style="text-align: center;">
+                            <h4 style="margin-bottom: 5%;">آیا از رزرو مطمئن هستید ؟</h4>
+                            <button onclick="reserveLebasShui() " class="btn btn-default" style="text-align: center;direction: rtl;font-size: 120%;background-color: green;color: white;margin-left: 2%; ">رزرو لباسشویی</button>
+
+                        </div>
+                        <div class="modal-footer ">
+                            <button type="button" class="btn btn-default" style="text-align: center;direction: rtl;font-size: 120%;background-color: red;color: white; " data-dismiss="modal">انصراف!</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <script>
+                    function reserveLebasShui() {
+                        // reserve lebashui , ye payam JSON be PHP server.
+
+                    }
+                </script>
+
+            </div>
+
+            <!-- END OF MODAL CONTENT -->
+
+            <script>
+                // Get the Sidebar
+                var mySidebar = document.getElementById("mySidebar ");
+
+                // Get the DIV with overlay effect
+                var overlayBg = document.getElementById("myOverlay ");
+
+                // Toggle between showing and hiding the sidebar, and add overlay effect
+                function w3_open() {
+                    if (mySidebar.style.display === 'block') {
+                        mySidebar.style.display = 'none';
+                        overlayBg.style.display = "none ";
+                    } else {
+                        mySidebar.style.display = 'block';
+                        overlayBg.style.display = "block ";
+                    }
+                }
+
+                // Close the sidebar with the close button
+                function w3_close() {
+                    mySidebar.style.display = "none ";
+                    overlayBg.style.display = "none ";
+                }
+
+                function changeTheme() {
+                    if (document.getElementById("changeThemeCheck ").checked) {
+                        document.getElementById("afLogin ").className = "w3-black "
+                        document.getElementById("modalSet ").style.backgroundColor = "#000 "
+                        document.getElementById("modalSet ").style.color = "white "
+                        document.getElementById("modalInfo ").style.backgroundColor = "#000 "
+                        document.getElementById("modalInfo ").style.color = "white "
+                        document.getElementById("main ").style.backgroundColor = "#000 "
+                        document.getElementById("mySidebar ").classList.remove("w3-light-grey ")
+                        document.getElementById("mySidebar ").classList.add("w3-dark-grey ")
+                    } else {
+                        document.getElementById("afLogin ").className = "w3-white "
+                        document.getElementById("modalSet ").style.backgroundColor = "#fff "
+                        document.getElementById("modalSet ").style.color = "black "
+                        document.getElementById("modalInfo ").style.backgroundColor = "#fff "
+                        document.getElementById("modalInfo ").style.color = "black "
+                        document.getElementById("main ").style.backgroundColor = "#fff "
+                        document.getElementById("mySidebar ").classList.add("w3-light-grey ")
+                        document.getElementById("mySidebar ").classList.remove("w3-dark-grey ")
+                    }
+
+                }
+
+                function fullScreen() {
+                    if (document.getElementById("changeFullCheck ").checked) {
+                        var elem = document.documentElement;
+                        if (elem.requestFullscreen) {
+                            elem.requestFullscreen();
+                        } else if (elem.mozRequestFullScreen) {
+                            elem.mozRequestFullScreen();
+                        } else if (elem.webkitRequestFullscreen) {
+                            elem.webkitRequestFullscreen();
+                        } else if (elem.msRequestFullscreen) {
+                            elem.msRequestFullscreen();
+                        }
+
+                    } else {
+                        if (document.exitFullscreen) {
+                            document.exitFullscreen();
+                        } else if (document.mozCancelFullScreen) {
+                            document.mozCancelFullScreen();
+                        } else if (document.webkitExitFullscreen) {
+                            document.webkitExitFullscreen();
+                        } else if (document.msExitFullscreen) {
+                            document.msExitFullscreen();
+                        }
+                    }
+
+                }
+            </script>
+
+            <script src="vendor/jquery/jquery-3.2.1.min.js "></script>
+            <!--===============================================================================================-->
+            <script src="vendor/bootstrap/js/popper.js "></script>
+            <script src="vendor/bootstrap/js/bootstrap.min.js "></script>
+            <!--===============================================================================================-->
+            <script src="vendor/select2/select2.min.js "></script>
+            <!--===============================================================================================-->
+            <script src="vendor/tilt/tilt.jquery.min.js "></script>
+            <script>
+                $('.js-tilt').tilt({
+                    scale: 1.1
+                })
+            </script>
+            <!--===============================================================================================-->
+            <script src="js/main.js "></script>
+
+
+
+            <!-- FOR SUPPORTING -->
+
+
+
+    </div>
+</body>
+
+</html>

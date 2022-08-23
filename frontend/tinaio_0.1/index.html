@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Tinaio realtime system</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+
+<head>
+    <!-- SCRIPTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
+    <script src="dependency.js"></script>
+
+
+    <script>
+        var websocket = "broker.mqttdashboard.com";
+        var port = 8000;
+        var user = "naprmcna";
+        var pass = "cNnzIl3OKxmI";
+
+
+
+        client = new Paho.MQTT.Client(websocket, port, "Deviceid_34534543");
+
+
+        // set callback handlers
+        client.onConnectionLost = onConnectionLost;
+        client.onMessageArrived = onMessageArrived;
+
+        var options = {
+            useSSL: true,
+            userName: user,
+            password: pass,
+            onSuccess: onConnect,
+            onFailure: doFail
+        }
+
+        // connect the client
+
+        client.connect(options);
+
+        var temp
+        var humid
+        var temp2
+        var humid2
+        var temp3
+        var humid3
+
+        // called when the client connects
+
+        function onConnect() {
+            // Once a connection has been made, make a subscription and send a message.
+
+
+            // document.getElementById("connstatus").innerHTML = "Mqtt Connected";
+
+            console.log("Mqtt Connected");
+
+            client.subscribe("x/ahs/0/0/temp");
+            client.subscribe("x/ahs/0/0/humid")
+            client.subscribe("x/ahs/0/1/temp");
+            client.subscribe("x/ahs/0/1/humid")
+            client.subscribe("x/ahs/0/2/temp");
+            client.subscribe("x/ahs/0/2/humid")
+
+            message1 = new Paho.MQTT.Message("31");
+            message1.destinationName = "x/ahs/0/0/temp";
+            client.send(message1);
+
+            message2 = new Paho.MQTT.Message("32");
+            message2.destinationName = "x/ahs/0/2/temp";
+            client.send(message2);
+
+            message3 = new Paho.MQTT.Message("33");
+            message3.destinationName = "x/ahs/0/3/temp";
+            client.send(message3);
+
+
+        }
+
+        function sendMessage() {
+            console.log(document.getElementById("command").innerText)
+            if (document.getElementById("command").innerText == "ON") {
+                myMSG = new Paho.MQTT.Message("on");
+                myMSG.destinationName = "ahs/0/command/0";
+                client.send(myMSG);
+                document.getElementById("command").innerHTML = "OFF"
+                document.getElementById("command").style.backgroundColor = "rgb(216, 21, 21)"
+            } else if (document.getElementById("command").innerText == "OFF") {
+                myMSG = new Paho.MQTT.Message("off");
+                myMSG.destinationName = "ahs/0/command/0";
+                client.send(myMSG);
+                document.getElementById("command").innerText = "ON"
+                document.getElementById("command").style.backgroundColor = "#4CAF50"
+            }
+
+        }
+
+        function doFail(e) {
+            console.log(e);
+        }
+
+        // called when the client loses its connection
+        function onConnectionLost(responseObject) {
+
+            document.getElementById("connstatus").innerHTML = "Mqtt Not Connected";
+
+            if (responseObject.errorCode !== 0) {
+                console.log("onConnectionLost:" + responseObject.errorMessage);
+            }
+        }
+
+        function onMessageArrived(message) {
+
+            // console.log("onMessageArrived:" + message.destinationName);
+            // console.log("message.payloadString:" + message.payloadString);
+            // document.getElementById("connstatus").innerHTML = "temp is : " + message.payloadString;
+            console.log(message.destinationName)
+            if (message.destinationName.includes("ahs/0/0/temp")) {
+                temp = message.payloadString
+
+            }
+            if (message.destinationName.includes("ahs/0/0/humid")) {
+                humid = message.payloadString
+            }
+            if (message.destinationName.includes("ahs/0/1/temp")) {
+                temp2 = message.payloadString
+            }
+            if (message.destinationName.includes("ahs/0/1/humid")) {
+                humid2 = message.payloadString
+            }
+            if (message.destinationName.includes("ahs/0/2/temp")) {
+                temp3 = message.payloadString
+            }
+            if (message.destinationName.includes("ahs/0/2/humid")) {
+                humid3 = message.payloadString
+            }
+
+            sumOfTemp = parseInt(temp) + parseInt(temp2) + parseInt(temp3)
+            sumOfHumid = parseInt(humid) + parseInt(humid2) + parseInt(humid3)
+
+            document.getElementById("totTemp").innerHTML = "Temperature: " + sumOfTemp / 3 + "&#8451;"
+            document.getElementById("totHumid").innerHTML = "Humidity: " + sumOfHumid / 3 + "%"
+
+            document.getElementById("Temp1").innerHTML = "Temperature 1: " + temp + "&#8451;"
+            document.getElementById("Humid1").innerHTML = "Humidity 1: " + humid + "%"
+            document.getElementById("Temp2").innerHTML = "Temperature 2: " + temp2 + "&#8451;"
+            document.getElementById("Humid2").innerHTML = "Humidity 2: " + humid2 + "%"
+            document.getElementById("Temp3").innerHTML = "Temperature 3: " + temp3 + "&#8451;"
+            document.getElementById("Humid3").innerHTML = "Humidity 3: " + humid3 + "%"
+
+
+
+            console.log("temp is " + temp)
+            console.log("humid is " + humid)
+
+
+        }
+    </script>
+
+
+
+    <script>
+        window.onload = function() {
+
+            var dataPoints1 = [];
+            var dataPoints2 = [];
+            var dataPoints3 = [];
+            var dataPoints4 = [];
+            var dataPoints5 = [];
+            var dataPoints6 = [];
+
+            var chart = new CanvasJS.Chart("chartContainer", {
+                zoomEnabled: true,
+                title: {
+                    text: "space number 1"
+                },
+                axisX: {
+                    title: "Real Time Ariona system "
+                },
+                axisY: {
+                    prefix: "",
+                    includeZero: false
+                },
+                toolTip: {
+                    shared: true
+                },
+                legend: {
+                    cursor: "pointer",
+                    verticalAlign: "top",
+                    fontSize: 22,
+                    fontColor: "dimGrey",
+                    itemclick: toggleDataSeries
+                },
+                data: [{
+                    type: "line",
+                    xValueType: "dateTime",
+                    yValueFormatString: "####.00",
+                    xValueFormatString: "hh:mm:ss TT",
+                    showInLegend: true,
+                    name: "Temperature :",
+                    dataPoints: dataPoints1
+                }, {
+                    type: "line",
+                    xValueType: "dateTime",
+                    yValueFormatString: "####.00",
+                    showInLegend: true,
+                    name: "Humidity :",
+                    dataPoints: dataPoints2
+                }]
+            });
+
+
+            var chart2 = new CanvasJS.Chart("chartContainer2", {
+                zoomEnabled: true,
+                title: {
+                    text: "space number 2"
+                },
+                axisX: {
+                    title: "Real Time Ariona system "
+                },
+                axisY: {
+                    prefix: "",
+                    includeZero: false
+                },
+                toolTip: {
+                    shared: true
+                },
+                legend: {
+                    cursor: "pointer",
+                    verticalAlign: "top",
+                    fontSize: 22,
+                    fontColor: "dimGrey",
+                    itemclick: toggleDataSeries
+                },
+                data: [{
+                    type: "line",
+                    xValueType: "dateTime",
+                    yValueFormatString: "####.00",
+                    xValueFormatString: "hh:mm:ss TT",
+                    showInLegend: true,
+                    name: "Temperature :",
+                    dataPoints: dataPoints3
+                }, {
+                    type: "line",
+                    xValueType: "dateTime",
+                    yValueFormatString: "####.00",
+                    showInLegend: true,
+                    name: "Humidity :",
+                    dataPoints: dataPoints4
+                }]
+            });
+
+
+
+            var chart3 = new CanvasJS.Chart("chartContainer3", {
+                zoomEnabled: true,
+                title: {
+                    text: "space number 3"
+                },
+                axisX: {
+                    title: "Real Time Ariona system "
+                },
+                axisY: {
+                    prefix: "",
+                    includeZero: false
+                },
+                toolTip: {
+                    shared: true
+                },
+                legend: {
+                    cursor: "pointer",
+                    verticalAlign: "top",
+                    fontSize: 22,
+                    fontColor: "dimGrey",
+                    itemclick: toggleDataSeries
+                },
+                data: [{
+                    type: "line",
+                    xValueType: "dateTime",
+                    yValueFormatString: "####.00",
+                    xValueFormatString: "hh:mm:ss TT",
+                    showInLegend: true,
+                    name: "Temperature :",
+                    dataPoints: dataPoints5
+                }, {
+                    type: "line",
+                    xValueType: "dateTime",
+                    yValueFormatString: "####.00",
+                    showInLegend: true,
+                    name: "Humidity :",
+                    dataPoints: dataPoints6
+                }]
+            });
+
+
+
+
+            function toggleDataSeries(e) {
+                if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+                    e.dataSeries.visible = false;
+                } else {
+                    e.dataSeries.visible = true;
+                }
+                chart.render();
+                chart2.render();
+            }
+
+            var updateInterval = 5000;
+            // initial value
+            var yValue1 = 30;
+            var yValue2 = 605;
+            var yValue3 = 30;
+            var yValue4 = 605;
+            var yValue5 = 30;
+            var yValue6 = 605;
+
+            var time = new Date;
+            // starting at 9.30 am
+            var now = new Date();
+            time.setHours(now.getHours().toString(10));
+            time.setMinutes(now.getMinutes().toString(10));
+            time.setSeconds(now.getSeconds().toString(10));
+            time.setMilliseconds(00);
+
+            function updateChart(count) {
+                count = count || 1;
+                var deltaY1, deltaY2;
+                for (var i = 0; i < count; i++) {
+                    time.setTime(time.getTime() + updateInterval);
+
+                    // adding random value and rounding it to two digits. 
+
+                    if (typeof(temp) === undefined || typeof(humid) === undefined) {
+                        yValue1 = 40
+                        yValue2 = 50
+                        yValue3 = 40
+                        yValue4 = 50
+                    } else {
+                        yValue1 = parseInt(temp)
+                        yValue2 = parseInt(humid)
+                        yValue3 = parseInt(temp2)
+                        yValue4 = parseInt(humid2)
+                        yValue5 = parseInt(temp3)
+                        yValue6 = parseInt(humid3)
+
+                    }
+
+                    // pushing the new values
+                    dataPoints1.push({
+                        x: time.getTime(),
+                        y: yValue1
+                    });
+                    dataPoints2.push({
+                        x: time.getTime(),
+                        y: yValue2
+                    });
+
+                    dataPoints3.push({
+                        x: time.getTime(),
+                        y: yValue3
+                    });
+                    dataPoints4.push({
+                        x: time.getTime(),
+                        y: yValue4
+                    });
+
+                    dataPoints5.push({
+                        x: time.getTime(),
+                        y: yValue5
+                    });
+                    dataPoints6.push({
+                        x: time.getTime(),
+                        y: yValue6
+                    });
+
+                }
+
+                // updating legend text with  updated with y Value 
+                chart.options.data[0].legendText = " Temperature :  " + yValue1;
+                chart.options.data[1].legendText = " Humidity :  " + yValue2;
+                chart.render();
+
+                chart2.options.data[0].legendText = " Temperature :  " + yValue3;
+                chart2.options.data[1].legendText = " Humidity :  " + yValue4;
+                chart2.render();
+
+                chart3.options.data[0].legendText = " Temperature :  " + yValue3;
+                chart3.options.data[1].legendText = " Humidity :  " + yValue4;
+                chart3.render();
+            }
+            // generates first set of dataPoints 
+            updateChart(100);
+            setInterval(function() {
+                updateChart()
+            }, updateInterval);
+
+        }
+    </script>
+
+
+</head>
+
+
+
+
+
+<!-- STYLES -->
+<style>
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        font-family: "Poppins", sans-serif
+    }
+    
+    body {
+        font-size: 16px;
+    }
+    
+    .w3-half img {
+        margin-bottom: -6px;
+        margin-top: 16px;
+        opacity: 0.8;
+        cursor: pointer
+    }
+    
+    .w3-half img:hover {
+        opacity: 1
+    }
+</style>
+
+<body>
+
+    <!-- Sidebar/menu -->
+    <nav class="w3-sidebar w3-purple w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+        <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+        <div class="w3-container">
+            <h2 class="w3-padding-64"><b><span style="font-size: 200% ; color: white ; background-color: blue" >TINAIO</span></b><br><span style="font-size: 70%">IoT development</span></h3>
+        </div>
+        <div class="w3-bar-block">
+            <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
+            <a href="#Summary" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Summary</a>
+            <a href="#Details" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Details</a>
+            <a href="#Charts" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Charts </a>
+            <a href="#About" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">About Us</a>
+            <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Top menu on small screens -->
+    <header class="w3-container w3-top w3-hide-large w3-purple w3-xlarge w3-padding">
+        <a href="javascript:void(0)" class="w3-button w3-purple w3-margin-right" onclick="w3_open()">☰</a>
+        <span>TINAIO</span>
+    </header>
+
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close" id="myOverlay"></div>
+
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+        <div class="w3-container" style="margin-top:80px" id="Summary">
+            <button type="submit" class="w3-button w3-block w3-padding-large w3-indigo w3-margin-bottom">command to send : ON</button>
+        </div>
+
+
+        <!-- Header -->
+        <div class="w3-container" style="margin-top:80px" id="Summary">
+            <h1 class="w3-xxxlarge w3-text-purple"><b>Summary :</b></h1>
+            <h1 class="w3-xxxlarge w3-text-purple"><b></b></h1>
+            <hr style="width:50px;border:5px solid blue" class="w3-round">
+        </div>
+
+        <!-- Photo grid (modal) -->
+        <div class="w3-row-padding">
+            <div class="w3-half">
+                <h3 id="totTemp">Temperature : </h3>
+            </div>
+
+            <div class="w3-half">
+                <h3 id="totHumid">Humidity : </h3>
+            </div>
+        </div>
+
+        <!-- Modal for full size images on click-->
+        <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+            <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
+            <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+                <img id="img01" class="w3-image">
+                <p id="caption"></p>
+            </div>
+        </div>
+
+        <!-- Services -->
+        <div class="w3-container" id="Details" style="margin-top:75px">
+            <h1 class="w3-xxxlarge w3-text-purple"><b>Details :</b></h1>
+            <hr style="width:50px;border:5px solid blue" class="w3-round">
+            <div class="w3-third">
+                <h3 id="Temp1">Temperature 1 : </h3>
+                <h3 id="Humid1">Humidity 1 : </h3>
+            </div>
+
+            <div class="w3-third">
+                <h3 id="Temp2">Temperature 2 : </h3>
+                <h3 id="Humid2">Humidity 2 : </h3>
+            </div>
+
+            <div class="w3-third">
+                <h3 id="Temp3">Temperature 3 : </h3>
+                <h3 id="Humid3">Humidity 3 : </h3>
+            </div>
+
+        </div>
+
+        <!-- Charts -->
+        <div class="w3-container" id="Charts" style="margin-top:75px">
+            <h1 class="w3-xxxlarge w3-text-purple"><b>Charts</b></h1>
+            <hr style="width:50px;border:5px solid blue" class="w3-round">
+
+            <div id="chartContainer" style=" margin-top: 2%; height: 300px; width: 100%; visibility: visible ; display: block"></div>
+            <div id="chartContainer2" style=" margin-top: 2%; height: 300px; width: 100%; visibility: visible ; display: block "></div>
+            <div id="chartContainer3" style=" margin-top: 2%; height: 300px; width: 100%; visibility: visible; display: block "></div>
+
+
+
+        </div>
+
+
+
+        <!-- About -->
+        <div class="w3-container" id="About" style="margin-top:75px">
+            <h1 class="w3-xxxlarge w3-text-purple"><b>About</b></h1>
+            <hr style="width:50px;border:5px solid blue" class="w3-round">
+            <p>it's Tinaio!</p>
+        </div>
+
+        <div class="w3-row-padding">
+            <div class="w3-half w3-margin-bottom">
+                <ul class="w3-ul w3-light-grey w3-center">
+                    <li class="w3-blue w3-xlarge w3-padding-32">Home IoT</li>
+                    <li class="w3-padding-16">Automate your home</li>
+                    <li class="w3-padding-16">24hour/7day control</li>
+                    <li class="w3-padding-16">Reduce costs</li>
+                    <li class="w3-padding-16">Protect your home intelligently</li>
+
+                    <li class="w3-light-grey w3-padding-24">
+                        <button class="w3-button w3-blue w3-padding-large w3-hover-black">Smart Your Home</button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="w3-half">
+                <ul class="w3-ul w3-light-grey w3-center">
+                    <li class="w3-blue w3-xlarge w3-padding-32">Work IoT</li>
+                    <li class="w3-padding-16">Automate your factory/work</li>
+                    <li class="w3-padding-16">Increase ease of your workers</li>
+                    <li class="w3-padding-16">Reduce costs</li>
+                    <li class="w3-padding-16">Protect your work intelligently</li>
+                    <li class="w3-light-grey w3-padding-24">
+                        <button class="w3-button w3-blue w3-padding-large w3-hover-black">Sign Up</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="w3-container" id="contact" style="margin-top:75px">
+            <h1 class="w3-xxxlarge w3-text-purple"><b>Contact.</b></h1>
+            <hr style="width:50px;border:5px solid blue" class="w3-round">
+            <p>Do you want to have more details and to be in contact with us? feel free to fill this form and send it to us. </p>
+            <form action="/action_page.php" target="_blank">
+                <div class="w3-section">
+                    <label>Name</label>
+                    <input class="w3-input w3-border" type="text" name="Name" required>
+                </div>
+                <div class="w3-section">
+                    <label>Email</label>
+                    <input class="w3-input w3-border" type="text" name="Email" required>
+                </div>
+                <div class="w3-section">
+                    <label>Message</label>
+                    <input class="w3-input w3-border" type="text" name="Message" required>
+                </div>
+                <button type="submit" class="w3-button w3-block w3-padding-large w3-purple w3-margin-bottom">Send Message</button>
+            </form>
+        </div>
+
+        <!-- End page content -->
+    </div>
+
+    <!-- W3.CSS Container -->
+    <div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px">
+        <p class="w3-right">Powered by <a href="http://www.ahsefati.ir" title="AHS" target="_blank" class="w3-hover-opacity">Amir Hossein Sefati</a></p>
+    </div>
+
+    <script>
+        // Script to open and close sidebar
+        function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+            document.getElementById("myOverlay").style.display = "block";
+        }
+
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("myOverlay").style.display = "none";
+        }
+
+        // Modal Image Gallery
+        function onClick(element) {
+            document.getElementById("img01").src = element.src;
+            document.getElementById("modal01").style.display = "block";
+            var captionText = document.getElementById("caption");
+            captionText.innerHTML = element.alt;
+        }
+    </script>
+
+</body>
+
+</html>

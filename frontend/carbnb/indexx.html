@@ -1,0 +1,1216 @@
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+
+<div class="header" id="myHeader">
+    <h2>کشف قیمت هوشمند</h2>
+</div>
+
+<div id="container">
+    <div>
+        <div class="row">
+            <div class="column">
+                <div class="card">
+                    <h3>برند و مدل</h3>
+                    <select onchange="makeModels()" name="brand" id="brand" style="width: 100%;">
+                        <option value="-1">همه برند ها</option>
+                        <option value="30">اپل</option>
+                        <option value="2">اس دبلیو ام</option>
+                        <option value="3">اسمارت</option>
+                        <option value="4">الدزمبیل</option>
+                        <option value="5">ام جی</option>
+                        <option value="6">ام وی ام</option>
+                        <option value="7">ایسوزو</option>
+                        <option value="8">اینفینیتی</option>
+                        <option value="9">آلفارومئو</option>
+                        <option value="1">آمیکو</option>
+                        <option value="2">آئودی</option>
+                        <option value="6">بی ام و</option>
+                        <option value="3">بایک</option>
+                        <option value="7">برلیانس</option>
+                        <option value="4">بسترن</option>
+                        <option value="27">بنز</option>
+                        <option value="17">بورگوارد</option>
+                        <option value="18">بی وای دی</option>
+                        <option value="5">بیسو</option>
+                        <option value="8">بیوک</option>
+                        <option value="31">پاژن</option>
+                        <option value="22">پراید</option>
+                        <option value="34">پروتون</option>
+                        <option value="32">پژو</option>
+                        <option value="33">پورشه</option>
+                        <option value="26">پونتیاک</option>
+                        <option value="27">پیکان</option>
+                        <option value="41">تویوتا</option>
+                        <option value="40">تیبا</option>
+                        <option value="18">جک</option>
+                        <option value="84">جگوار</option>
+                        <option value="19">جیپ</option>
+                        <option value="14">جیلی</option>
+                        <option value="32">چانگان</option>
+                        <option value="10">چری</option>
+                        <option value="34">دامای</option>
+                        <option value="35">دانگ فنگ</option>
+                        <option value="36">دنا</option>
+                        <option value="37">دوو</option>
+                        <option value="38">دی اس</option>
+                        <option value="39">رانا</option>
+                        <option value="40">راین</option>
+                        <option value="36">رنو</option>
+                        <option value="42">ریگان</option>
+                        <option value="43">زوتی</option>
+                        <option value="44">سانگ یانگ</option>
+                        <option value="37">ساینا</option>
+                        <option value="38">سمند</option>
+                        <option value="47">سوبارو</option>
+                        <option value="39">سوزوکی</option>
+                        <option value="11">سیتروئن</option>
+                        <option value="50">سئات</option>
+                        <option value="51">شورولت</option>
+                        <option value="13">فوتون</option>
+                        <option value="53">فورد</option>
+                        <option value="43">فولکس</option>
+                        <option value="12">فیات</option>
+                        <option value="9">کاپرا</option>
+                        <option value="57">کادیلاک</option>
+                        <option value="58">کرایسلر</option>
+                        <option value="35">کوییک</option>
+                        <option value="20">کیا</option>
+                        <option value="61">گریت وال</option>
+                        <option value="62">گک</option>
+                        <option value="63">لانچا</option>
+                        <option value="22">لکسوس</option>
+                        <option value="65">لندرور</option>
+                        <option value="21">لندمارک</option>
+                        <option value="24">لوتوس</option>
+                        <option value="23">لیفان</option>
+                        <option value="25">مازراتی</option>
+                        <option value="26">مزدا</option>
+                        <option value="28">میتسوبیشی</option>
+                        <option value="72">مینی</option>
+                        <option value="29">نیسان</option>
+                        <option value="74">وانت</option>
+                        <option value="44">ولوو</option>
+                        <option value="42">ون</option>
+                        <option value="77">هامر</option>
+                        <option value="78">هاوال</option>
+                        <option value="15">هایما</option>
+                        <option value="80">هن تنگ</option>
+                        <option value="16">هوندا</option>
+                        <option value="82">هیلمن</option>
+                        <option value="17">هیوندای</option>
+                    </select>
+                    <select name="model" id="model" style="width: 100%; margin-top: 5%;">
+                        <option value="-1">همه مدل ها</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                    <h3>سال تولید و کارکرد</h3>
+                    <select name="year" id="year" style="width: 100%;">
+                        <option value="-1">تمام سال ها</option>
+                        <option value="0">قبل از 1387 - 2008</option>
+                        <option value="19">1388 - 2009</option>
+                        <option value="20">1389 - 2010</option>
+                        <option value="21">1390 - 2011</option>
+                        <option value="22">1391 - 2012</option>
+                        <option value="23">1392 - 2013</option>
+                        <option value="24">1393 - 2014</option>
+                        <option value="25">1394 - 2015</option>
+                        <option value="26">1395 - 2016</option>
+                        <option value="27">1396 - 2017</option>
+                        <option value="28">1397 - 2018</option>
+                        <option value="29">1398</option>
+                        <option value="30">1399</option>
+                    </select>
+                    <select name="worked" id="worked" style="width: 100%; margin-top: 5%;">
+                        <option value="-1">تمام کارکرد ها</option>
+                        <option value="0">صفر کیلومتر</option>
+                        <option value="10000">زیر 10 هزار کیلومتر</option>
+                        <option value="20000">10 تا 20 هزار کیلومتر</option>
+                        <option value="30000">20 تا 30 هزار کیلومتر</option>
+                        <option value="50000">30 تا 50 هزار کیلومتر</option>
+                        <option value="70000">50 تا 70 هزار کیلومتر</option>
+                        <option value="100000">70 تا 100 هزار کیلومتر</option>
+                        <option value="150000">100 تا 150 هزار کیلومتر</option>
+                        <option value="200000">150 تا 200 هزار کیلومتر</option>
+                        <option value="300000">200 تا 300 هزار کیلومتر</option>
+                        <option value="300001">بیشتر از 300 هزار کیلومتر</option>
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                    <h3>رنگ اصلی</h3>
+                    <select name="color" id="color" style="width: 100%;">
+                        <option value="-1">تمام رنگ ها</option>
+                        <option value="18">سفید</option>
+                        <option value="25">مشکی</option>
+                        <option value="28">نقره ای</option>
+                        <option value="8">خاکستری</option>
+                        <option value="19">سفید صدفی</option>
+                        <option value="26">نوک مدادی</option>
+                        <option value="23">قهوه ای</option>
+                        <option value="17">سرمه ای</option>
+                        <option value="6">بژ</option>
+                        <option value="22">قرمز</option>
+                        <option value="1">آبی</option>
+                        <option value="32">یشمی</option>
+                        <option value="11">زرد</option>
+                        <option value="24">مسی</option>
+                        <option value="15">سبز</option>
+                        <option value="2">آلبالویی</option>
+                        <option value="27">نقرآبی</option>
+                        <option value="4">بادمجانی</option>
+                        <option value="16">سربی</option>
+                        <option value="30">کربن بلک</option>
+                        <option value="22">زرشکی</option>
+                        <option value="7">تیتانیوم</option>
+                        <option value="20">طلایی</option>
+                        <option value="13">ذغالی</option>
+                        <option value="10">دلفینی</option>
+                        <option value="31">کرم</option>
+                        <option value="28">نارنجی</option>
+                        <option value="14">زیتونی</option>
+                        <option value="21">طوسی</option>
+                        <option value="31">عنابی</option>
+                        <option value="29">پوست پیازی</option>
+                        <option value="3">اطلسی</option>
+                        <option value="5">برنز</option>
+                        <option value="12">زرشکی</option>
+                        <option value="9">خاکی</option>
+                        <option value="37">بنفش</option>
+                        <option value="38">گیلاسی</option>
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                    <h3>وضعیت بدنه</h3>
+                    <select name="status" id="status" style="width: 100%;">
+                        <option value="-1">تمام حالت ها</option>
+                        <option value="3">بدون رنگ</option>
+                        <option value="8">چند لکه رنگ</option>
+                        <option value="15">یک لکه رنگ</option>
+                        <option value="5">دو لکه رنگ</option>
+                        <option value="6">دور رنگ</option>
+                        <option value="9">کامل رنگ</option>
+                        <option value="12">گلگیر تعویض</option>
+                        <option value="7">صافکاری بدون رنگ</option>
+                        <option value="10">کاپوت تعویض</option>
+                        <option value="13">گلگیر رنگ</option>
+                        <option value="12">کابوت رنگ</option>
+                        <option value="14">یک درب رنگ</option>
+                        <option value="14">درب تعویض</option>
+                        <option value="15">تصادفی</option>
+                        <option value="4">دو درب رنگ</option>
+                        <option value="2">اتاق تعویض</option>
+                        <option value="18">سوخته</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="column">
+                <div class="card">
+                    <h3>نوع سوخت مصرفی</h3>
+                    <select name="fuel" id="fuel" style="width: 100%;">
+                        <option value="-1">تمام حالت ها</option>
+                        <option value="1">بنزین</option>
+                        <option value="2">دوگانه سوز</option>
+                        <option value="3">هیبرید</option>
+                        <option value="4">دیزل</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                    <h3>نوع جعبه دنده</h3>
+                    <select name="gear" id="gear" style="width: 100%;">
+                        <option value="-1">تمام حالت ها</option>
+                        <option value="2">دنده ای</option>
+                        <option value="1">اتوماتیک</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                    <h3>دیفرانسیل</h3>
+                    <select name="def" id="def" style="width: 100%;">
+                        <option value="-1">تمام حالت ها</option>
+                        <option value="1">تک دیفرانسیل</option>
+                        <option value="3">تمام چرخ متحرک</option>
+                        <option value="2">دو دیفرانسیل</option>
+                    </select>
+                </div>
+            </div>
+
+            <div onclick="findPrice()" class="column w3-hide-small">
+                <div class="card filter-btn" style="cursor: pointer;">
+                    <h1>کشف قیمت</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="w3-btn fixedbutton w3-hide-large w3-hide-medium" style="font-size: 150%;" onclick="findPrice()">کشف قیمت</button>
+</div>
+
+
+
+<!-- Forgotten Password Container -->
+<div class="w3-hide-small" id="forgotten-container">
+    <h1 style="margin-top:5%; color: white;">در حال بررسی</h1>
+    <span class="close-btn">
+      <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png"></img>
+    </span>
+
+    <div class="loader"></div>
+</div>
+
+<div class="w3-hide-large w3-hide-medium" id="forgotten-container-M">
+    <span class="close-btn">
+      <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png"></img>
+    </span>
+    <div class="loaderM"></div>
+</div>
+
+
+<div id="result">
+    <h1 style="margin-top: 2%;font-size: 150%;">گزارش نتیجه:</h1>
+    <span class="close-btn">
+      <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png"></img>
+    </span>
+
+
+    <div style="margin-top: 4%;">
+        <div class="row">
+            <div class="column2">
+                <div class="card w3-green">
+                    <h3 class="" style="font-size: 150%;" id="highest">1380 میلیون تومان</h3>
+                </div>
+            </div>
+            <div class="column2">
+                <div class="card">
+                    <h3 class="" style="font-size: 170%;"><b id="avg">1300 میلیون تومان</b></h3>
+                </div>
+            </div>
+            <div class="column2">
+                <div class="card w3-red">
+                    <h3 class="" style="font-size: 150%;" id="lowest">1240 میلیون تومان</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <br>
+    <div class="w3-full" style="margin-top: 10%;">
+        <button type="button" style="font-size: 130%;" class="btn btn-info">مشاهده نتایج دقیق</button>
+        <button type="button" style="font-size: 130%;" onclick="searchAgain()" class="btn btn-success">کشف دوباره</button>
+        <button type="button" style="font-size: 130%;" class="btn btn-danger">گزارش خطا</button>
+    </div>
+
+
+</div>
+
+
+<div class="footer w3-hide-small" style="border-top-left-radius: 50%;border-top-right-radius: 50%;">
+    <h4>کلیه حقوق محفوظ است.</h4>
+</div>
+
+
+<style>
+    /* LOADER */
+    
+    .loader {
+        border: 25px solid #ffffff;
+        border-radius: 50%;
+        border-top: 25px solid #248a24;
+        width: 100px;
+        height: 100px;
+        -webkit-animation: spin 2s linear infinite;
+        /* Safari */
+        animation: spin 2s linear infinite;
+        margin-top: 10%;
+        margin-right: 35%;
+    }
+    
+    .loaderM {
+        border: 25px solid #ffffff;
+        border-radius: 50%;
+        border-top: 25px solid #248a24;
+        width: 100px;
+        height: 100px;
+        -webkit-animation: spin 2s linear infinite;
+        /* Safari */
+        animation: spin 2s linear infinite;
+        margin-top: 23%;
+        margin-right: 24%;
+    }
+    
+    @-webkit-keyframes spin {
+        0% {
+            -webkit-transform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(360deg);
+        }
+    }
+    
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    /* END LOADER */
+    
+    @font-face {
+        font-family: 'iransans';
+        src: url('./fonts/IRANSans.ttf');
+    }
+    
+    * {
+        font-family: 'iransans' !important;
+        direction: rtl;
+        box-sizing: border-box;
+    }
+    
+    html {
+        background: white;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        text-align: center;
+    }
+    
+    img {
+        display: block;
+        margin: auto;
+        width: 100%;
+        height: auto;
+    }
+    
+    #login-button {
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 30px;
+        margin: auto;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: rgba(15, 116, 211, 0.8);
+        overflow: hidden;
+        opacity: 0.8;
+        box-shadow: 10px 10px 30px rgb(15, 212, 226);
+    }
+    /* Login container */
+    
+    @media all and (min-width: 800px) {
+        #container {
+            background: rgba(2, 37, 134, 0.8);
+            box-shadow: 10px 10px 30px rgb(15, 212, 226);
+            position: absolute;
+            padding: 2%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            width: 95%;
+            height: 50%;
+            border-radius: 30px;
+            display: none;
+        }
+    }
+    
+    @media all and (max-width: 799px) {
+        #container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: 25% 2% 2% 2%;
+            width: 95%;
+            height: 55%;
+            border-radius: 30px;
+            display: none;
+        }
+    }
+    
+    .close-btn {
+        position: absolute;
+        cursor: pointer;
+        font-family: 'Open Sans Condensed', sans-serif;
+        line-height: 18px;
+        top: 3px;
+        right: 3px;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        border-radius: 10px;
+        background-color: white;
+        opacity: 0.6;
+        -webkit-transition: all 2s ease-in-out;
+        -moz-transition: all 2s ease-in-out;
+        -o-transition: all 2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+    }
+    
+    .close-btn:hover {
+        opacity: 1;
+    }
+    /* Heading */
+    
+    h1 {
+        font-family: 'Open Sans Condensed', sans-serif;
+        position: relative;
+        margin-top: 0px;
+        text-align: center;
+        font-size: 40px;
+        color: rgb(221, 221, 221);
+        text-shadow: 3px 3px 10px #000;
+    }
+    /* Inputs */
+    
+    a,
+    input {
+        font-family: 'Open Sans Condensed', sans-serif;
+        text-decoration: none;
+        position: relative;
+        width: 80%;
+        display: block;
+        margin: 9px auto;
+        font-size: 17px;
+        color: #fff;
+        padding: 8px;
+        border-radius: 6px;
+        border: none;
+        background: rgba(3, 3, 3, .1);
+        -webkit-transition: all 2s ease-in-out;
+        -moz-transition: all 2s ease-in-out;
+        -o-transition: all 2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+    }
+    
+    input:focus {
+        outline: none;
+        box-shadow: 3px 3px 10px #333;
+        background: rgba(3, 3, 3, .18);
+    }
+    /* Placeholders */
+    
+     ::-webkit-input-placeholder {
+        color: #ddd;
+    }
+    
+     :-moz-placeholder {
+        /* Firefox 18- */
+        color: red;
+    }
+    
+     ::-moz-placeholder {
+        /* Firefox 19+ */
+        color: red;
+    }
+    
+     :-ms-input-placeholder {
+        color: #333;
+    }
+    /* Link */
+    
+    a {
+        font-family: 'Open Sans Condensed', sans-serif;
+        text-align: center;
+        padding: 4px 8px;
+        background: rgba(108, 255, 3, 0.801);
+    }
+    
+    a:hover {
+        opacity: 0.9;
+    }
+    
+    #remember-container {
+        position: relative;
+        margin: -10px 30px;
+    }
+    
+    .checkbox {
+        position: relative;
+        cursor: pointer;
+        -webkit-appearance: none;
+        padding: 5px;
+        border-radius: 4px;
+        background: rgba(3, 3, 3, .2);
+        display: inline-block;
+        width: 16px;
+        height: 15px;
+    }
+    
+    .checkbox:checked:active {
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .checkbox:checked {
+        background: rgba(3, 3, 3, .4);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.5);
+        color: #fff;
+    }
+    
+    .checkbox:checked:after {
+        content: '\2714';
+        font-size: 10px;
+        position: absolute;
+        top: 0px;
+        left: 4px;
+        color: #fff;
+    }
+    
+    #remember {
+        position: absolute;
+        font-size: 13px;
+        font-family: 'Hind', sans-serif;
+        color: rgba(255, 255, 255, .7);
+        top: 7px;
+        left: 20px;
+    }
+    
+    #forgotten {
+        position: absolute;
+        font-size: 12px;
+        font-family: 'Hind', sans-serif;
+        color: rgba(255, 255, 255, .6);
+        right: 0px;
+        top: 8px;
+        cursor: pointer;
+        -webkit-transition: all 2s ease-in-out;
+        -moz-transition: all 2s ease-in-out;
+        -o-transition: all 2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+    }
+    
+    #forgotten:hover {
+        color: rgba(255, 255, 255, 1);
+    }
+    
+    #forgotten-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        width: 30%;
+        height: 40%;
+        border-radius: 10px;
+        background: rgba(2, 37, 134, 0.8);
+        box-shadow: 1px 1px 50px rgb(15, 212, 226);
+        display: none;
+    }
+    
+    #forgotten-container-M {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        width: 200px;
+        height: 200px;
+        border-radius: 10px;
+        background: rgba(2, 37, 134, 0.8);
+        box-shadow: 1px 1px 50px rgb(15, 212, 226);
+        display: none;
+    }
+    
+    #result {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        width: 80%;
+        height: 30%;
+        border-radius: 10px;
+        background: rgba(2, 37, 134, 0.8);
+        box-shadow: 1px 1px 50px rgb(15, 212, 226);
+        display: none;
+    }
+    
+    .orange-btn {
+        background: rgba(87, 198, 255, .5);
+    }
+    
+    .column {
+        float: right;
+        width: 25%;
+        padding: 0 10px;
+    }
+    
+    .column2 {
+        float: right;
+        width: 33.3%;
+        padding: 0 10px;
+    }
+    /* Remove extra left and right margins, due to padding */
+    
+    .row {
+        margin: 0 -5px;
+    }
+    /* Clear floats after the columns */
+    
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    /* Responsive columns */
+    
+    @media screen and (max-width: 600px) {
+        .column {
+            width: 100%;
+            display: block;
+            margin-bottom: 20px;
+        }
+    }
+    /* Style the counter cards */
+    
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(36, 99, 7, 0.877);
+        padding: 4%;
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.884);
+        border-radius: 10px;
+    }
+    
+    .fixedbutton {
+        position: sticky;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: green;
+        color: white;
+        margin-top: 1%;
+        text-align: center;
+        border-top-right-radius: 50%;
+        border-top-left-radius: 50%;
+    }
+    
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: green;
+        color: white;
+        text-align: center;
+    }
+    
+    .filter-btn {
+        cursor: pointer;
+        background-color: rgb(236, 42, 42);
+        box-shadow: 10px 10px 30px rgb(22, 145, 11);
+    }
+    
+    .filter-btn:hover {
+        background-color: rgb(22, 145, 11);
+        box-shadow: 10px 10px 30px rgb(236, 42, 42);
+        transition: ease-in 0.5s;
+    }
+    
+    .header {
+        padding: 10px 16px;
+        background: green;
+        color: #f1f1f1;
+    }
+    
+    .sticky {
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+    
+    .sticky+.content {
+        padding-top: 102px;
+    }
+</style>
+
+<script>
+    setTimeout(() => {
+        $("#container").fadeIn();
+        TweenMax.from("#container", .4, {
+            scale: 0,
+            ease: Sine.easeInOut
+        });
+        TweenMax.to("#container", .4, {
+            scale: 1,
+            ease: Sine.easeInOut
+        });
+    }, 500);
+
+
+    $(".close-btn").click(function() {
+        $("#forgotten-container").fadeOut(800, function() {
+            $("#forgotten-container-M").fadeOut(500)
+            $("#result").fadeOut(800)
+            $("#container").fadeIn(800);
+        });
+    });
+
+    function searchAgain() {
+        $("#forgotten-container").fadeOut(800, function() {
+            $("#forgotten-container-M").fadeOut(500)
+            $("#result").fadeOut(800)
+            $("#container").fadeIn(800);
+        });
+    }
+
+    /* Forgotten Password */
+    $('#forgotten').click(function() {
+        $("#container").fadeOut(function() {
+            $("#forgotten-container").fadeIn();
+            $("#forgotten-container-M").fadeIn()
+        });
+    });
+
+
+
+    var cars_with_subgroup_list_dict = {
+        '30': ['gt',
+            'امگا',
+            'آسترا سدان',
+            'آسترا هاچ بک',
+            'کورسا',
+            'موکا',
+            'وکترا'
+        ],
+        'autobianchi': ['a112'],
+        '300': ['roadster', 'fortwo', 'forfour'],
+        '400': ['ciera'],
+        '700': ['d-max'],
+        '800': ['fx'],
+        '1': ['araz-2door', 'asna-4door'],
+        '2': ['a4', 'a6', 'q5', 'TT-Convertible', 'tt-coupe'],
+        '3': ['x25', 'sabrina-hatchback', 'sabrina-hatchback-ir', 'senova'],
+        '7': ['h220', 'h230', 'h2l', 'h320', 'h330', 'v5', 'cross-C3'],
+        '4': ['b30', 'b50', 'b50f'],
+        '1700': ['bx5', 'bx7'],
+        '5': ['t3', 't5'],
+        '8': ['b3', 'b3-ir'],
+        '31': ['4doors', '2doors', 'pickup2cab', 'herour'],
+        '2200': ['111', '131', '132', '141', '151', 'sedan', 'hatchback'],
+        '34': ['impian', 'gen2', 'wira'],
+        '32': ['2008',
+            '206-ir',
+            '206-im',
+            '206sd',
+            '207',
+            '207sd',
+            '301',
+            '404',
+            '405',
+            '407',
+            '504',
+            '508',
+            'rd',
+            'rdi',
+            'pars',
+            'roa',
+            'limousine'
+        ],
+        '33': ['911', 'boxster', 'panamera', 'cayenne', 'cayman-s', 'macan'],
+        '2600': ['transam'],
+        '2700': ['sedan', 'pickup'],
+        '41': ['gt86',
+            'c-hr',
+            'c-hr-hybrid',
+            'aurion',
+            'fj-cruiser',
+            'prado-4doors',
+            'prado-2doors',
+            'prius',
+            'rav4',
+            'solara',
+            'furtuner',
+            '4runner',
+            'carina',
+            'corolla',
+            'corona',
+            'cressida',
+            'camry',
+            'camry-hybrid',
+            'landcruiser-4door',
+            'landcruiser-2door',
+            'landcruiser-pickup-2door',
+            'landcruiser-pickup-4door',
+            'hiace',
+            'hilux-2door',
+            'hilux-4door',
+            'hilux-high',
+            'yaris',
+            'yaris-hatchback'
+        ],
+        '40': ['sedan', 'hatchback'],
+        '18': ['s3', 's5', 'j3-hatchback', 'j4', 'j5'],
+        '84': ['x-type', 'xj'],
+        '1900': ['km',
+            'ahoo',
+            'tosan',
+            'cherokee',
+            'wrangler',
+            'renegade',
+            'shahbaz',
+            'sahra',
+            'willys'
+        ],
+        '14': ['gc6', 'emgrand7', 'emgrand7-rv', 'emgrand-x7'],
+        '3200': ['cs35', 'cs35-ir', 'eado'],
+        '10': ['arrizo5', 'arrizo5te', 'arrizo6', 'tiggo5', 'tiggo7', 'viana'],
+        '3500': ['x7'],
+        '3600': [],
+        'dodge': [],
+        '3700': ['espero', 'racer', 'cielo', 'matiz'],
+        '3900': ['el', 'lx'],
+        '4000': ['v5'],
+        '36': ['21',
+            '5',
+            '5-ir',
+            'scala',
+            'scala-convertible',
+            'pars-tondar',
+            'pk',
+            'talisman',
+            'trafic',
+            'tundar-pickup',
+            'tondar90',
+            'duster',
+            'sandero',
+            'sandero-stepway',
+            'sepand',
+            'safrane',
+            'symbol',
+            'fluence',
+            'captur',
+            'koleos',
+            'laguna-coupe',
+            'latitude',
+            'megan-ir',
+            'megan',
+            'megan-convertible',
+            'megan-hatchback'
+        ],
+        '4200': ['coupa'],
+        '4300': ['z300', 'Ario'],
+        '37': ['ex-mt', 'at'],
+        '38': ['el', 'lx', 'se', 'x7', 'sarir', 'soren'],
+        '47': ['legacy'],
+        '39': ['kizashi', 'grand-vitara-ir', 'grand-vitara'],
+        '11': ['c3-ir', 'c5', 'xantia', 'jian'],
+        '50': ['leon'],
+        '51': ['impala',
+            'blazer',
+            'suburban',
+            'celebrity',
+            'caprice',
+            'camaro',
+            'montecarlo',
+            'nova',
+            'pickup'
+        ],
+        '13': ['tunland', 'sauvana', 'sauvana-ir'],
+        '53': ['ltd',
+            'edge',
+            'escape',
+            'explorer',
+            'bronco',
+            'thunderbird',
+            'mustang'
+        ],
+        '43': ['t2-kombi',
+            't3-vanagon',
+            'beetle',
+            'beetle-convertible',
+            'passat',
+            'transporter',
+            'tiguan',
+            'gol',
+            'golf',
+            'multivan'
+        ],
+        '12': ['500', 'ducato', 'siena'],
+        '9': ['2', '2door', '4door'],
+        '57': ['eldorado', 'seville', 'seville-ir'],
+        '58': ['300c'],
+        '35': ['at-full', 'at-full-plus', 'manual', 'manual-r'],
+        '20': ['optima',
+            'optima-hybrid',
+            'opirus',
+            'sportage',
+            'picanto',
+            'rio-ir',
+            'rio-sedan',
+            'rio-hatchback',
+            'cerato',
+            'cerato-ir',
+            'cerato-koup',
+            'sorento',
+            'cadenza',
+            'carnival',
+            'carens',
+            'mohave'
+        ],
+        'lamborghini': ['gallardo-coupe'],
+        '63': ['thesis'],
+        '22': ['ct',
+            'es',
+            'gs',
+            'is',
+            'is-convertible',
+            'ls',
+            'lx',
+            'nx',
+            'nx-hybrid',
+            'rx'
+        ],
+        '21': ['v7'],
+        'lobo': ['misc'],
+        '24': ['elise'],
+        '23': ['520', '520i', '620', '820', 'x50', 'x60'],
+        '25': ['quattroporte', 'granturismo', 'grancabrio', 'ghibli'],
+        '26': ['2-ir',
+            '3-ir',
+            '3-sedan',
+            '3-hatchback',
+            '323',
+            'cx9',
+            'pickup-2door-ir',
+            'Pickup-4door-ir'
+        ],
+        '28': ['asx',
+            'eclipse',
+            'outlander',
+            'outlander-phev',
+            'pajero-4door',
+            'pajero-2door',
+            'pajero-ir',
+            'colt',
+            'galant',
+            'lancer',
+            'mirage',
+            'pickup'
+        ],
+        '72': ['countryman', 'clubman', 'cooper'],
+        '29': ['x-trail',
+            'altima',
+            'patrol-im',
+            'patrol-4door-ir',
+            'patrol-2door-ir',
+            'pathfinder',
+            'pickup-ir-1cab',
+            'pickup-ir-2cab',
+            'teana-ir',
+            'teana-im',
+            'juke',
+            'roniz',
+            'seranza',
+            'qashqai',
+            'maxima-ir',
+            'maxima-im',
+            'murano',
+            'murano-ir',
+            'zamyad-pickup'
+        ],
+        '44': ['c30', 'c70-convertible', 'v40', 'xc60', 'xc90', 'misc'],
+        '42': ['iveco',
+            'delica',
+            'siba',
+            'ghazal',
+            'caravan-saipa',
+            'maxus',
+            'mitsubishi',
+            'narvan',
+            'vana'
+        ],
+        '77': ['h2'],
+        '78': ['h2'],
+        '15': ['s5', 's7'],
+        '80': ['x5', 'x7'],
+        '16': ['cr-v', 'accord', 'civic', 'legend'],
+        '82': ['avenger'],
+        '17': ['h-350',
+            'h1',
+            'i10-ir',
+            'i20',
+            'i20-ir',
+            'i30',
+            'i40',
+            'i40-sw',
+            'starex',
+            'excel',
+            'accent',
+            'accent-ir',
+            'elantra',
+            'elantra-ir',
+            'azera',
+            'avante',
+            'tucson-ix35',
+            'genesis',
+            'genesis-coupe',
+            'santafe-ix45',
+            'centennial',
+            'sonata',
+            'sonata-hybrid',
+            'coupe',
+            'veracruz-ix55',
+            'verna',
+            'veloster'
+        ],
+        '27': ['a-class', 'b-class', 'c-class', 'cl-class', 'cla-class', 'clk-class-convertible', 'clk-class-coupe', 'cls-class', 'e-class', 'e-class-ir', 'e-class-convertible', 'e-class-coupe', 'gl-class', 'gla-class', 'glc-class', 'glk-class', 'ml-class', 's-class', 'sl-class', 'slk-class', 'classic', 'van', 'van-ir'],
+        '6': ['x1', 'x3', 'x4', 'x5', 'x6', 'z4', '1-series-convertible', '1-series-coupe', '1-series',
+            '2-series-activetourer', '2-series-convertible', '2-series-coupe', '3-series-gt', '3-series-sedan',
+            '3-series-convertible', '3-series-coupe', '4-series-convertible', '4-series-coupe',
+            '4-series-grancoupe', '5-series-gt', '5-series-sedan', '6-series-convertible', '6-series-coupe',
+            '6-series-grancoupe', '7-series', 'i-series', 'classic'
+        ]
+    }
+
+    function makeModels() {
+        var x = document.getElementById("brand").value;
+        const sel = document.getElementById("model")
+        sel.innerHTML = ''
+        var opt = document.createElement('option')
+        opt.innerText = "همه مدل ها"
+        opt.value = "all"
+        sel.appendChild(opt)
+        if (x != "0") {
+
+            for (var i = 0; i < cars_with_subgroup_list_dict[x].length; i++) {
+
+                var opt = document.createElement('option')
+                opt.innerText = cars_with_subgroup_list_dict[x][i]
+                opt.value = cars_with_subgroup_list_dict[x][i]
+                sel.appendChild(opt)
+            }
+        }
+
+    }
+
+    function findPrice() {
+        var brandS = document.getElementById("brand");
+        var selectedBrand = brandS.options[brandS.selectedIndex].value;
+
+        var modelS = document.getElementById("model");
+        var selectedModel = modelS.options[modelS.selectedIndex].value;
+
+        var yearS = document.getElementById("year");
+        var selectedYear = yearS.options[yearS.selectedIndex].value;
+
+        var workedS = document.getElementById("worked");
+        var selectedWorked = workedS.options[workedS.selectedIndex].value;
+
+        var colorS = document.getElementById("color");
+        var selectedColor = colorS.options[colorS.selectedIndex].value;
+
+        var stausS = document.getElementById("status");
+        var selectedStatus = stausS.options[stausS.selectedIndex].value;
+
+        var fuelS = document.getElementById("fuel");
+        var selectedFuel = fuelS.options[fuelS.selectedIndex].value;
+
+        var gearS = document.getElementById("gear");
+        var selectedGear = gearS.options[gearS.selectedIndex].value;
+
+        var defS = document.getElementById("def");
+        var selectedDef = defS.options[defS.selectedIndex].value;
+
+
+        // console.log("selected brand: " + selectedBrand)
+        // console.log("selected model: " + selectedModel)
+        // console.log("selected year: " + selectedYear)
+        // console.log("selected worked: " + selectedWorked)
+        // console.log("selected color: " + selectedColor)
+        // console.log("selected status: " + selectedStatus)
+        // console.log("selected fuel: " + selectedFuel)
+        // console.log("selected gear: " + selectedGear)
+        // console.log("selected def: " + selectedDef)
+
+
+        $("#container").fadeOut(function() {
+            $("#forgotten-container").fadeIn();
+            $("#forgotten-container-M").fadeIn()
+        });
+
+
+        $.ajax({
+            type: 'POST',
+            url: 'https://api.shiwatec.ir/carbnb/find/price',
+            data: {
+                brand: selectedBrand,
+                model: selectedModel,
+                old: selectedYear,
+                worked: selectedWorked,
+                color: selectedColor,
+                status: selectedStatus,
+                fuel: selectedFuel,
+                gearbox: selectedGear,
+                def: selectedDef
+            },
+            success: function(response) {
+                $("#forgotten-container").fadeOut(function() {
+                    $("#forgotten-container-M").fadeOut()
+                    $("#result").fadeIn();
+                });
+                console.log(resultDataJSON)
+                document.getElementById("lowest").innerText = resultDataJSON.lowest
+                document.getElementById("avg").innerText = resultDataJSON.avg
+                document.getElementById("highest").innerText = resultDataJSON.highest
+
+            }
+        });
+
+    }
+</script>
+
+<script>
+    window.onscroll = function() {
+        myFunction()
+    };
+
+    var header = document.getElementById("myHeader");
+    var sticky = header.offsetTop;
+
+    function myFunction() {
+        if (window.pageYOffset > sticky) {
+            header.classList.add("sticky");
+        } else {
+            header.classList.remove("sticky");
+        }
+    }
+</script>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+</head>
+
+<style>
+    * {
+        font-family: 'iransans';
+        src: url('fonts/IRANSans.ttf');
+    }
+    
+    .custom-file-upload {
+        border: 1px solid rgb(87, 231, 147);
+        display: inline-block;
+        padding: 6px 12px;
+        cursor: pointer;
+    }
+    
+    .button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+</style>
+
+
+<body>
+    <div class="card">
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+            <h2 style="text-align: center;font-family: 'iransans';">
+                فایلتون رو اینجا آپلود کنین و بعد به هرکی میخواستین آدرسش رو بدین
+            </h2>
+            <div style="text-align: center;align-content: center;">
+                <input type="file" value="Choose config file" name="fileToUpload" id="fileToUpload" class="custom-file-upload">
+
+            </div>
+            <div style="text-align: center;align-content: center;">
+                <input style="margin-top: 3%;font-family: 'iransans';" class="button" type="submit" value="آپلود کن" name="submit">
+            </div>
+
+        </form>
+
+        <h6 style="text-align: center;font-family: 'iransans';">
+            لطفا فایل الکی آپلود نکنین ، منابع محدود هستش، ممنون
+        </h6>
+
+    </div>
+</body>
+
+</html>
